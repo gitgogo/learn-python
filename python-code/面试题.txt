@@ -1,0 +1,20 @@
+1.一套完整的测试生命周期
+
+2.测试用例方法有哪些？以具体实例说明各自的应用
+
+3.做好测试用例设计工作的关键是什么？
+
+4.在Linux中，一个文件的访问权限是755，其含义是什么？
+r=4 w=2 x=1 u=user g=group o=others
+
+5.Linux中如何从root用户切换到普通用户？
+su可以在用户间切换；su - //可切换至root用户，root可省略不写；su -test //切换至test用户
+
+6.简述自动化测试工具的原理
+
+
+7.数据库查询语句
+
+8.简述负载测试（Load Testing）、压力测试（Stress Testing）和性能测试（Performance Testing）之间的异同
+
+9.
