@@ -1,13 +1,10 @@
 #coding=utf-8
-from random import randrange
-# lis=sorted([randrange(100) for _ in range(15)])
-f=open('f:\\1.txt','w')
-j=0
-for i in range(1,101):
-	f.write(str(i)+' '+chr(97+j)+'\n')
-	j+=1
-	if j>25:
-		j=0
-f.close()
-
-
+fp = open(r'f:\1.txt')
+aList = []
+for item in fp:
+    if item.strip():
+        aList.append(item)
+fp.close()
+fp = open(r'f:\4.txt','w')
+fp.writelines(aList)
+fp.close()
