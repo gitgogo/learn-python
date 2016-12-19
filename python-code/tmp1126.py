@@ -1,16 +1,24 @@
 #coding=utf-8
-from xlrd import open_workbook
-from xlwt import Workbook
+# 输入样例:
+# Welcome to the Python world Are you ready
+# 输出样例:
+# elcomeway otay ethay ythonpay orldway arehay ouyay eadyray
+def pig_latin(word):
+	word=word.lower()
+	if word[0] in 'aeiou':
+		return word+'hay'
+	if word[:2]=='qu':
+		return word[2:]+'quay'
+	if word[0] not in 'aeiou':
+		for i in range(1,len(word)):
+			if word[i] in 'aeiouy':
+				return word[i:]+word[:i]+'ay'
+def to_pig_latin(sentance):
+	tmp_list=sentance.split()
+	for i in range(len(tmp_list)):
+		tmp_list[i]=pig_latin(tmp_list[i])
+	return ' '.join(tmp_list)
+print to_pig_latin('Welcome to the Python world Are you ready')
 
-test_file=open_workbook('f:\\test.xlsx')
-test_sheet=test_file.sheets()[0]
-result=Workbook()
-result_sheet=result.add_sheet('result',cell_overwrite_ok=True)
-count=0
-for row in range(1,test_sheet.nrows):
-	for col in range(1,test_sheet.ncols):
-		if test_sheet.cell(row,1).value<=test_sheet.cell(row,2).value:
-			result_sheet.write(row,1,test_sheet.cell(row,1).value)
-			count+=1
-result_sheet.write(0,0,count/2)
-result.save('f:\\result.xls')
+
+

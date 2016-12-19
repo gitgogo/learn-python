@@ -93,18 +93,50 @@ for name,count in name_dict.items():
 4)将字符串使用空格进行切分，存到一个列表，然后使用*号连接，并输出 
 5)把这些功能封装到一个函数里面，把执行结果作为返回值
 '''
-
+from string import maketrans
+def strange(strr):
+	strr=strr.strip()
+	tran=maketrans('123456789','abcdefghi')
+	trans_str=strr.translate(tran)
+	list_tmp=trans_str.split()
+	return '*'.join(list_tmp)
 # 7、找出字符串中出现次数最多的字符，并输出其出现的位置 
-
+def get_most_char(strr):
+	most_char=['',0]
+	tmp=set(list(strr))
+	for i in tmp:
+		if strr.count(i)>most_char[1]:
+			most_char[0]=i
+			most_char[1]=strr.count(i)
+	tmp_list=[]
+	while strr.find(most_char[0])!=-1:
+		tmp_list.append(strr.find(most_char[0]))
+		strr=strr.replace(most_char[0],' ',1)
+	return most_char,tmp_list
+	
 # 8、找出一段句子中最长的单词及其索引位置，以字典返回
-
+from string import maketrans
+def get_longest_word(strr):
+	trans=maketrans(',.?!','    ')
+	strr=strr.translate(trans)
+	word_list=strr.split()
+	result={}
+	for word in word_list:
+		result[word]=word_list.index(word)
+	return sorted(result.items(),key=lambda x:len(x[0]))[-1]
+strr='''Trumps going to get us into war because he can't stop tweeting. Can't someone take this 8 year old man boy's phone away for the safety of our country?'''
+print get_longest_word(strr)
 '''
 9、字母游戏
 “Pig Latin”是一个英语儿童文字改写游戏，整个游戏遵从下述规则:
-(1). 元音字母是‘a’、‘e’、‘i’、‘o’、‘u’。字母‘y’在不是第一个字母的情况下，也被视作元音 字母。其他字母均为辅音字母。例如，单词“yearly”有三个元音字母(分别为‘e’、‘a’和最后一个 ‘y’)和三个辅音字母(第一个‘y’、‘r ’和‘l’)。
-(2). 如果英文单词以元音字母开始，则在单词末尾加入“hay”后得到“Pig Latin”对应单词。例如，“ask” 变为“askhay”，“use”变为“usehay”。(同上)
-(3). 如果英文单词以‘q’字母开始，并且后面有个字母‘u’，将“qu”移动到单词末尾加入“ay”后得到 “Pig Latin”对应单词。例如，“quiet”变为“ietquay”，“quay”变为“ayquay”。
-(4). 如果英文单词以辅音字母开始，所有连续的辅音字母一起移动到单词末尾加入“ay”后得到“Pig Latin” 对应单词。例如，“tomato”变为“omatotay”， “school” 变为“oolschay”，“you” 变为 “ouyay”，“my” 变为“ymay ”，“ssssh” 变为“sssshay”。
+(1). 元音字母是‘a’、‘e’、‘i’、‘o’、‘u’。字母‘y’在不是第一个字母的情况下，也被视作元音 字母。
+其他字母均为辅音字母。例如，单词“yearly”有三个元音字母(分别为‘e’、‘a’和最后一个 ‘y’)和三个辅音字母(第一个‘y’、‘r ’和‘l’)。
+(2). 如果英文单词以元音字母开始，则在单词末尾加入“hay”后得到“Pig Latin”对应单词。
+例如，“ask” 变为“askhay”，“use”变为“usehay”。(同上)
+(3). 如果英文单词以‘q’字母开始，并且后面有个字母‘u’，将“qu”移动到单词末尾加入“ay”后得到 “Pig Latin”对应单词。
+例如，“quiet”变为“ietquay”，“quay”变为“ayquay”。
+(4). 如果英文单词以辅音字母开始，所有连续的辅音字母一起移动到单词末尾加入“ay”后得到“Pig Latin” 对应单词。
+例如，“tomato”变为“omatotay”， “school” 变为“oolschay”，“you” 变为 “ouyay”，“my” 变为“ymay ”，“ssssh” 变为“sssshay”。
 (5). 如果英文单词中有大写字母，必须所有字母均转换为小写。
 输入格式:
 一系列单词，单词之间使用空格分隔。
@@ -115,7 +147,21 @@ Welcome to the Python world Are you ready
 输出样例:
 elcomeway otay ethay ythonpay orldway arehay ouyay eadyray
 '''
-
+def pig_latin(word):
+	word=word.lower()
+	if word[0] in 'aeiou':
+		return word+'hay'
+	if word[:2]=='qu':
+		return word[2:]+'quay'
+	if word[0] not in 'aeiou':
+		for i in range(1,len(word)):
+			if word[i] in 'aeiouy':
+				return word[i:]+word[:i]+'ay'
+def to_pig_latin(sentance):
+	tmp_list=sentance.split()
+	for i in range(len(tmp_list)):
+		tmp_list[i]=pig_latin(tmp_list[i])
+	return ' '.join(tmp_list)
 # 10、实现字符串的upper、lower以及swapcase方法
 def my_upper(strr):
 	tmp=''
