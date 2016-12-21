@@ -90,3 +90,11 @@ fp.close()
 fp = open(r'f:\4.txt','w')
 fp.writelines(aList)
 fp.close()
+#加入时间模块，写入文件
+import time
+with open('f:\\1.txt') as f:
+	for i in range(5):
+		word=raw_input('input a word: ')
+		f.write(time.strftime('%Y-%m-%d %H:%M:%S')+' '+word+'\n')
+	f.seek(0,0)
+	print f.read()
