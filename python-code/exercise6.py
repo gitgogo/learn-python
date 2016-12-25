@@ -53,15 +53,27 @@ with open(r'f:\2.txt','r+') as f:
 判断是否是绝对路径：
 检验给出的路径是否真地存:
 '''
-
+import os
+os.path.isfile('/Users/ralphliu/Document/learn-python/python-code/tmp1126.py')
+os.path.isdir(path)
+os.path.isabs(path)
+os.path.exists(path)
 # 2.返回一个路径的目录名和文件名
-
+os.path.split('/python-code/tmp1126.py')
 # 3.分离文件名与扩展名
-
+os.path.splitext('python-code/tmp1126.py')
 # 4.找出某个目录下所有的文件，并在每个文件中写入“gloryroad”
-
+path='/Users/ralphliu/Document/'
+for file in os.listdir(path):
+	if os.path.isfile(os.path.join(path,file)):
+		with open(os.path.join(path,file),'a') as f:
+			f.write('gloryroad!')
 # 5.如果某个目录下文件名包含txt后缀名，则把文件后面追加写一行“被我找到了！”
-
+path='/Users/ralphliu/Document/'
+for file in os.listdir(path):
+	if os.path.splitext(file)[1]=='.txt':
+		with open(os.path.join(path,file),'a') as f:
+			f.write(os.linesep+u'被发现了！'.encode('utf-8'))
 # 6. 命题练习:
 # 1） 一个目录下只有文件（自己构造），拷贝几个文件（手工完成）
 # 2 ）用listdir函数获取所有文件，如果文件的创建时间是今天，那么就在文件里面写上文件的路径、
