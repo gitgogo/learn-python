@@ -54,7 +54,7 @@ with open(r'f:\2.txt','r+') as f:
 检验给出的路径是否真地存:
 '''
 import os
-os.path.isfile('/Users/ralphliu/Document/learn-python/python-code/tmp1126.py')
+os.path.isfile('/python-code/tmp1126.py')
 os.path.isdir(path)
 os.path.isabs(path)
 os.path.exists(path)
@@ -80,6 +80,20 @@ for file in os.listdir(path):
 # 文件名和文件扩展名
 # 3） 如果不是今天创建（获取文件的创建时间，并转化为时间格式，判断是否今天），请删除
 # 4 ）计算一下这个程序的执行耗时
+import os,time
+path='/Users/ralphliu/Document/test/'
+start_time=time.time()
+for file in os.listdir(path):
+	file_path=os.path.join(path,file)
+	ctime=os.path.getctime(file_path)
+	if time.strftime('%m-%d',time.localtime(ctime))==time.strftime('%m-%d'):
+		file_name=os.path.splitext(file)
+		with open(file_path,'a') as f:
+			f.write(os.linesep+file_path+' '+file_name[0]+' '+file_name[1])
+	else:
+		os.remove(file_path)
+total_time=time.time()-start_time
+print total_time
 
 # 7.删除某个目录下的全部文件
 
