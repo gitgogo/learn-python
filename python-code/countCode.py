@@ -22,8 +22,7 @@ def countLine(filename):
 			if file.endswith('.py'):
 				with open(os.path.join(filename,file),'r') as f:
 					for line in f:
-						if not line.strip().startswith('#') and len(line)-1!=0:#为什么要len-1？
-							# print line,len(line)
+						if not line.strip().startswith('#') and len(line.strip)!=0:
 							count+=1
 			elif os.path.isdir(file):
 				print 'scr'
