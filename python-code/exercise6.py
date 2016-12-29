@@ -171,9 +171,30 @@ def find_big_files(path):
 	return sorted(big_file.items(),key=lambda x:x[1])[-3:]
 
 # 16、过滤py源码中的#注释，另存为文件result.py，并执行result.py，断言是否执行成功
-
+file='/Users/ralphliu/Document/learn-python/python-code/8-5.py'
+result_file=open(r'/Users/ralphliu/Document/result.py','w')
+with open(file,'r') as f:
+	for line in f:
+		if line.strip().startswith('#'):
+			continue
+		else:
+			result_file.write(line)
+result_file.close()
+# os.system('python /Users/ralphliu/Document/result.py')
+result=os.popen('python /Users/ralphliu/Document/result.py')
+print type(result.read())
+assert result.read()=="[1, 2, 3, 4, 6, 12]"
 
 # 17、文件访问，提示输入数字 N 和文件 F, 然后显示文件 F 的前 N 行.
+def get_lines(file,num):
+	try:
+		with open(file) as f:
+			for i,line in enumerate(f):
+				if i<5:
+					print line
+				else:break
+	except Exception,e:
+		print e
 
 # 18、从命令行接受1个路径如：c:\a\b\c\1.py, 实现1个函数创建目录a\b\c,创建文件1.py
 # ，实现1个函数删除已创建的目录及文件

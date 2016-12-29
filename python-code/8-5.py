@@ -6,15 +6,7 @@ def getfactors(n):
 		if n%i==0:
 			l.append(i)
 	return l
-
-n=input('input a number: ')
-print getfactors(n)
-
-#8-6素因子分解
-def factors(n):
-	l2=[]
-	for i in getfactors(n):
-		if isprime(i) and i!=1:
-			l2.append(i)
-	for j in l2:
-		if 
+#test it
+# n=input('input a number: ')
+print getfactors(12)
+print type(getfactors(12))
