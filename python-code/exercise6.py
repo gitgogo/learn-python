@@ -180,7 +180,6 @@ with open(file,'r') as f:
 		else:
 			result_file.write(line)
 result_file.close()
-# os.system('python /Users/ralphliu/Document/result.py')
 result=os.popen('python /Users/ralphliu/Document/result.py')
 print type(result.read())
 assert result.read()=="[1, 2, 3, 4, 6, 12]"
@@ -198,6 +197,18 @@ def get_lines(file,num):
 
 # 18、从命令行接受1个路径如：c:\a\b\c\1.py, 实现1个函数创建目录a\b\c,创建文件1.py
 # ，实现1个函数删除已创建的目录及文件
+import sys,os
+def create_file():
+	file_name=os.path.split(sys.argv[1])
+	os.makedirs(file_name[0])
+	os.chdir(file_name[0])
+	with open(file_name[1],'w') as f:
+		pass
+
+def remove_file():
+	file_name=os.path.split(sys.argv[1])
+	os.remove(os.path.join(sys.argv[1]))
+	os.removedirs(file_name[0])
 
 # 19、有一个ip.txt，里面每行是一个ip，实现一个函数，ping 每个ip的结果，把结果记录
 # 存到ping.txt中，格式为ip:0或ip:1 ，0代表ping成功，1代表ping失败

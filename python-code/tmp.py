@@ -1,12 +1,15 @@
 #coding=utf-8
 import sys,os
-def get_lines(file,num):
-	try:
-		with open(file) as f:
-			for i,line in enumerate(f):
-				if i<5:
-					print line
-				else:break
-	except Exception,e:
-		print e
-get_lines('/Users/ralphliu/Document/learn-python/python-code/8-53.py',5)
+def create_file():
+	file_name=os.path.split(sys.argv[1])
+	os.makedirs(file_name[0])
+	os.chdir(file_name[0])
+	with open(file_name[1],'w') as f:
+		pass
+
+def remove_file():
+	file_name=os.path.split(sys.argv[1])
+	os.remove(os.path.join(sys.argv[1]))
+	os.removedirs(file_name[0])
+
+create_file()
