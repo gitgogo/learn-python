@@ -106,6 +106,13 @@ def setupDir(path):
 		pass
 setupDir('f:\\')
 
-
 # 第三题：把刚才的目录中的子目录和所有文件的路径，
 # 写入到一个文件d.txt中，文件在同级创建的目录下。
+def write_path(path):
+	for root,dirs,files in os.walk(path):
+		for dir in dirs:
+			with open(os.path.join(path,'test.txt'),'a') as f:
+				f.write(os.patn.join(root,dir))
+		for file in files:
+			with open(os.path.join(path,'test.txt'),'a') as f:
+				f.write(os.patn.join(root,file))
