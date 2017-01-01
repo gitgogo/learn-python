@@ -212,13 +212,31 @@ def remove_file():
 
 # 19、有一个ip.txt，里面每行是一个ip，实现一个函数，ping 每个ip的结果，把结果记录
 # 存到ping.txt中，格式为ip:0或ip:1 ，0代表ping成功，1代表ping失败
+def ping(filename):
+	os.chdir(os.path.dirname(filename))
+	result=open('ping.txt','w')
+	with open(filename) as f:
+		for line in f:
+			print line
+			content=os.popen('ping '+line.strip()+' -c 2')
+			result.write(line.strip()+':'+content.read()+os.linesep)
+	result.close()
 
 # 20、实现DOS命令执行功能，接受输入命令并执行，然后把执行结果和返回码打印到屏幕
-'''
+content=os.popen(sys.argv[1])
+print content.read()
 
+'''
 21、文件访问
 访问一存在多行的文件，实现每隔一秒逐行显示文本内容的程序，每次显示文本文件的 5
 行, 暂停并向用户提示“输入任意字符继续”，按回车键后继续执行，直到文件末尾。
 显示文件的格式为：
 [当前时间] 一行内容，比如：[2016-07-08 22:21:51] 999370this is test
 '''
+def access_file(filename):
+	with open(filename) as f:
+		for line_no,line in enumerate(f,1):
+			print '['+time.strftime('%Y-%m-%d %H:%M:%S')+']',line.strip()
+			time.sleep(1)
+			if not line_no%5:
+				raw_input('press anykey continue->')
