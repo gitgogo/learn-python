@@ -1,13 +1,57 @@
 # #coding=utf-8
 # 1、实现自己的数学模块mymath，提供有4个函数，分别为加减乘除， 在B模块中调用A模块的函数。
+def sum1(*argv):
+	return sum(argv)
+def minus(*argv):
+	result=argv[0]
+	if len(argv)==1:
+		return result
+	else:
+		for i in range(1,len(argv)):
+			result-=argv[i]
+		return result
+def multi(*argv):
+	result=1
+	for i in argv:
+		result*=i
+	return result
+def div(*argv):
+	result=argv[0]
+	if len(argv)==1:
+		return result
+	else:
+		for i in range(1,len(argv)):
+			result/=float(argv[i])
+		return result
+
+from exercise7 import *
+print sum1(3,2,1,4)
+print minus(3,2,1,4)
+print multi(3,2,1,4)
+print div(3,2,1,4)
 
 # 2、实现自己的字符串模块mystr，里面有方法:isdigit,strip, join,split 
 
 # 3、构建一个模块的层级包
 
+
 # 4、实现一个除法函数，并处理异常 
+def div(n1,n2):
+	try:
+		return round(float(n1)/n2,3)
+	except ZeroDivisionError,e:
+		print e 
 
 # 5、引发一个异常，并将它抛除到上层函数，上层函数捕获该异常并处理 
+def raise_exception():
+	num=raw_input('input a number->')
+	if num not in string.digits:
+		raise TypeError('must be number!')
+def hadle():
+	try:
+		raise_exception()
+	except TypeError,e:
+		print e
 
 # 6、实现字符串、列表、元组和set之间互相转换 
 
