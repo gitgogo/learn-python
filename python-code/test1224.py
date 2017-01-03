@@ -116,3 +116,35 @@ def write_path(path):
 		for file in files:
 			with open(os.path.join(path,'test.txt'),'a') as f:
 				f.write(os.patn.join(root,file))
+#sys.stdin
+counter=1
+while True:
+	line=sys.stdin.readline()
+	if not line:
+		break
+	print '%s:%s'%(counter,line)
+	counter+=1
+#sys.stdout sys.stderr
+for i in range(3):
+	sys.stdout.write(u'你今天真漂亮')
+
+for i in range(3):
+	sys.stderr.write(u'你看上去很累')
+
+#shutil模块
+
+#自定义with 异常
+class opened(object):
+	def __init__(self,filename):
+		self.handle=open(filename)
+	def __enter__(self):
+		return self.handle
+	def __exit__(self,exc_type,exc_value,exc_trackback):
+		if exc_trackback is None:
+			print 'exited without exception'
+		else:
+			return False
+		self.handle.close()
+with opened(filename) as f:
+	filename.write('abc')
+

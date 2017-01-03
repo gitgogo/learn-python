@@ -55,9 +55,18 @@ def hadle():
 
 # 6、实现字符串、列表、元组和set之间互相转换 
 
-# 7、结合set对象，统计某个list出现的重复元素个数 
-
+# 7、结合set对象，统计某个list出现的重复元素个数
+def count(lis):
+	result={}
+	for element in set(lis):
+		result[element]=lis.count(element)
+	return result
 # 8、定义一个元组，向元组中添加元素或者修改已有元素，并捕获异常 
+tup=(1,2,3,'r','e')
+try:
+	tup[1]='w'
+except TypeError,e:
+	print e
 
 # 9、删除无重复元组中给定的元素
 
@@ -66,6 +75,7 @@ def hadle():
 # 11、实现DOS命令执行功能，接受输入命令并执行，然后把执行结果和 返回码打印到屏幕
 
 # 12、求一个n*n矩阵对角线元素之和
+
 
 # 13、输入一个数组，最大的与第一个元素交换，最小的与最后一个元素 交换，输出数组
 
