@@ -75,11 +75,42 @@ except TypeError,e:
 # 11、实现DOS命令执行功能，接受输入命令并执行，然后把执行结果和 返回码打印到屏幕
 
 # 12、求一个n*n矩阵对角线元素之和
-
+import random
+def sum_nn(n):
+	result=0
+	listn=[]
+	for i in range(n):
+		lis=[]
+		for j in range(n):
+			lis.append(random.randint(1,10))
+		listn.append(lis)
+	for i in range(n):
+		result+=listn[i][i]
+	return result
 
 # 13、输入一个数组，最大的与第一个元素交换，最小的与最后一个元素 交换，输出数组
+def change_list(lis):
+	max_dex=lis.index(max(lis))
+	min_dex=lis.index(min(lis))
+	lis[0],lis[max_dex]=lis[max_dex],lis[0]
+	lis[-1],lis[min_dex]=lis[min_dex],lis[-1]
+	return lis
 
 # 14、平衡点，一个数组，有一个数字左边所有的数字加起来的总和等于 这个数右边所有数字的总和，请输出这个数以及坐标
+import random
+def balance(lis):
+	for i,j in enumerate(lis,1):
+		if sum(lis[:i-1])==sum(lis[i:]):
+			return j,i
+
+count=0
+while True:
+	count+=1
+	lis=[random.randint(1,10) for x in range(10)]
+	result=balance(lis)
+	if result:
+		print u'程序在第%s次找到符合的数组：%s平衡点为%s，在第%s个元素'%(count,lis,result[0],result[1])
+		break
 
 # 15、将单词表中由相同字母组成的单词归成一类，每类单词按照单词的 首字母排序，并按每类中第一个单词字典序由大到小排列输出各个类别。
 # 输入格式:按字典序由小到大输入若干个单词，每个单词占一行，以end 结束输入。
