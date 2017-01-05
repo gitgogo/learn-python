@@ -122,11 +122,30 @@ while True:
 # maps spam
 
 # 16、输入一个数组，实现一个函数，让所有奇数都在偶数前面 
-
+def change_list(lis):
+	tmp=[]
+	for element in lis:
+		if element%2:
+			tmp.insert(0,element)
+		else:
+			tmp.append(element)
+	return tmp
 # 17、lista=['a','abc','d','abc','fgi','abf']，寻找列表中第一次出现次数最多的
 # 第一个字母，出现了几次
 
 # 18、请输入星期几的第一个字母来判断一下是星期几，如果第一个字母 一样，则继续判断第二个字母
+week={'m':'monday','t':'tuesday','w':'wednesday','t':'Thursday','f':'Friday','s':{'a':'Saturday','u':'sunday'}}
+s=raw_input('input an alpha->').lower()
+if s in week.keys() and s!='s':
+	print week[s]
+elif s=='s':
+	s1=raw_input('input the second alpha->').lower()
+	if s1 in 'au':
+		print week['s'][s1]
+	else:
+		print 'invalid!'
+else:
+	print 'invalid!'
 
 # 19、有一堆100块的石头，2个人轮流随机从中取1-5块，谁取最后一块就 谁win，编程实现此过程
 
