@@ -1,12 +1,11 @@
 #coding=utf-8
-import sys
-import random
-def is2power(n):
-	while n>1:
-		print n
-		if n%2:
-			return False
-		n=float(n)/2
-	else:
-		return True
-print is2power()
+import time
+import datetime
+print datetime.date.today()
+
+#获取当前时间的时间戳
+now = time.time()
+print now
+#将时间戳转换为date类型的时间
+s = datetime.date.fromtimestamp(now)
+print s
