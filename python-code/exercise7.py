@@ -148,6 +148,22 @@ else:
 	print 'invalid!'
 
 # 19、有一堆100块的石头，2个人轮流随机从中取1-5块，谁取最后一块就 谁win，编程实现此过程
-
+n=100
+a=0
+print 'A first...'
+while n>0:
+	n-=random.randint(1,6)
+	a+=1
+if a%2:
+	print 'A win!'
+else:
+	print 'B win!'
 # 20、实现一个方法，判断一个正整数是否是2的乘方，比如16是2的4次方 ，返回True;18不是2的乘方，返回False。要求性能尽可能高
-
+def is2power(n):
+	while n>1:
+		print n
+		if n%2:
+			return False
+		n=float(n)/2
+	else:
+		return True
