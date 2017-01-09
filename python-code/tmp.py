@@ -1,11 +1,8 @@
 #coding=utf-8
-import time
-import datetime
-print datetime.date.today()
-
-#获取当前时间的时间戳
-now = time.time()
-print now
-#将时间戳转换为date类型的时间
-s = datetime.date.fromtimestamp(now)
-print s
+import time,datetime,calendar
+# print [x for x in dir(calendar.Calendar) if not x.startswith('_')]
+# print [x for x in dir(calendar) if not x.startswith('_')]
+my_cal=calendar.HTMLCalendar(calendar.MONDAY)
+print my_cal.formatmonth(2017,1)
+with open('/Users/ralphliu/Document/mycal.html','w') as f:
+	f.write(my_cal.formatmonth(2017,1))

@@ -34,3 +34,19 @@ print today
 
 #在今天的日期上再加10天
 print today + timedelta(days = 1000)
+
+d1=datetime.datetime(2017,1,9)
+d2=datetime.datetime(2016,12,25)
+print (d1-d2).days
+
+now=datetime.datetime.now()
+print now
+
+delta=datetime.timedelta(days=1)
+newTime=now+delta
+print newTime,type(newTime)
+print newTime.strftime('%Y-%m-%d %H:%M:%S')
+
+print datetime.datetime.now()+datetime.timedelta(days=100)
+print datetime.datetime.now()-datetime.timedelta(hours=30)
+print datetime.timedelta(hours=1,seconds=20).total_seconds()
