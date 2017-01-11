@@ -53,37 +53,37 @@ print datetime.timedelta(hours=1,seconds=20).total_seconds()
 
 #coding=utf-8
 import time,datetime,calendar,os
-# print [x for x in dir(calendar.Calendar) if not x.startswith('_')]
-# print [x for x in dir(calendar) if not x.startswith('_')]
-# my_cal=calendar.HTMLCalendar(calendar.MONDAY)
-# print my_cal.formatmonth(2017,1)
-# with open('/Users/ralphliu/Document/mycal.html','w') as f:
-# 	f.write(my_cal.formatmonth(2017,1))
+print [x for x in dir(calendar.Calendar) if not x.startswith('_')]
+print [x for x in dir(calendar) if not x.startswith('_')]
+my_cal=calendar.HTMLCalendar(calendar.MONDAY)
+print my_cal.formatmonth(2017,1)
+with open('/Users/ralphliu/Document/mycal.html','w') as f:
+	f.write(my_cal.formatmonth(2017,1))
 
-# start_time=time.time()
-# fp=open('f:\\tmp.rmvb','wb')
-# file=u'f:\\电影\\猎头者BD中字1280高清.rmvb'
-# with open(file,'rb') as f:
-# 	for line in f:
-# 		tmp=line
-# # fp.close()
-# total_time=time.time()-start_time
-# print u'文件大小：%s  用时：%s'%(os.path.getsize(file),total_time)
-# def get_date():
-# 	return time.strftime('%Y||%m||%d',time.localtime())
+start_time=time.time()
+fp=open('f:\\tmp.rmvb','wb')
+file=u'f:\\电影\\猎头者BD中字1280高清.rmvb'
+with open(file,'rb') as f:
+	for line in f:
+		tmp=line
+# fp.close()
+total_time=time.time()-start_time
+print u'文件大小：%s  用时：%s'%(os.path.getsize(file),total_time)
+def get_date():
+	return time.strftime('%Y||%m||%d',time.localtime())
 
-# def get_time():
-# 	return time.strftime('%H%%%M%%%S',time.localtime())
+def get_time():
+	return time.strftime('%H%%%M%%%S',time.localtime())
 
-# def get_date_and_time():
-# 	return time.strftime('%Y||%m||%d   %H%%%M%%%S',time.localtime())
+def get_date_and_time():
+	return time.strftime('%Y||%m||%d   %H%%%M%%%S',time.localtime())
 
-# print get_date()
-# print get_time()
-# print get_date_and_time()
+print get_date()
+print get_time()
+print get_date_and_time()
 
-# format_time=time.strptime('2017||01||10   21%45%15','%Y||%m||%d   %H%%%M%%%S')
-# print time.mktime(format_time)
+format_time=time.strptime('2017||01||10   21%45%15','%Y||%m||%d   %H%%%M%%%S')
+print time.mktime(format_time)
 
 import os,time
 def make_dir(path):
@@ -104,3 +104,11 @@ def make_dir(path):
 		f.write(u'今天是今年的第%s天'%(time.localtime().tm_yday)+
 			'\n'+u'今年的第%s周'%(time.strftime('%U')))
 make_dir('f:\\')
+
+
+import calendar
+calendar.isleap(2019)
+calendar.month_name
+calendar.day_name
+print calendar.month(2017,1,2,1)
+print calendar.calendar(2017,3,1,1)
