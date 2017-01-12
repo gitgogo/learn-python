@@ -120,6 +120,22 @@ while True:
 # 输出格式:一类单词一行，类别间单词以空格隔开。 aboard abroad
 # cinema iceman
 # maps spam
+content=[]
+while True:
+	words=raw_input('input words-->')
+	content.extend(words.strip().split())
+	if words.endswith('end'):
+		break
+content.remove('end')
+content.sort()
+
+for index,word in enumerate(content,1):
+	result=[word]
+	for mac in content[index:]:
+		if sorted(word)==sorted(mac):
+			result.append(mac)
+			content.remove(mac)
+	print ' '.join(result)
 
 # 16、输入一个数组，实现一个函数，让所有奇数都在偶数前面 
 def change_list(lis):
