@@ -21,7 +21,19 @@ class Animal(object):
 
 	@property #定义属性
 	def prop(self):
-		return self.say_hello()
+		if self.name=='doge':
+			self.prop='changed'
+		return self.name
+
+	@prop.setter
+	def prop(self,name):
+		self.name=name
+		# print 'changed'
+
+	@prop.deleter
+	def prop(self):
+		del self.prop
+		print 'deleted!'
 
 #类继承
 class Dog(Animal):
@@ -124,8 +136,28 @@ Foo.static_func()
 # print file1.get_line(5)
 
 #随机生成10个数、10个字母、10个数字加字母
-# class Genera(object):
-# 	def __init__(self,num_range,alph_range):
+import random
+import string
+class Random(object):
+	def __init__(self,num_range,alph_range):
+		self.num_range=num_range
+		self.alph_range=alph_range
+
+	def get_random_num(self,num):
+		return [random.choice(self.num_range) for x in range(num)]
+
+	def get_random_alph(self,num):
+		return [random.choice(self.alph_range) for x in range(num)]
+
+	def get_random_alphnum(self,num):
+		if isinstance(self.alph_range,str):
+			self.alph_range=list(self.alph_range)
+		return [random.choice(self.num_range+self.alph_range) for x in range(num)]
+
+r=Random(range(5,20),string.lowercase)
+print r.get_random_alph(10)
+print r.get_random_num(10)
+print r.get_random_alphnum(10)
 
 class Goods(object):
 
