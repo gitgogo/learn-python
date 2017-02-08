@@ -173,6 +173,15 @@ for i in range(1,8):
 
 # 15、写一个函数, 将驼峰命名法字符串转成下划线命名字符串，如GetItem -
 # > get_item，getItem -> get_item。
+def changeName(name):
+	name=list(name)
+	name[0]=name[0].lower()
+	for i,s in enumerate(name[1:],1):
+		if s.isupper():
+			name[i]='_'+s.lower()
+	return ''.join(name)
+
+print changeName('GetNameOne')
 
 # 16、给定一些NxN的矩阵，对于任意的路线，定义其【和】为其线路上所有 节点的数字的和，
 # 计算从左上角到右下角的路线和最小值。每条路线只能从 某一点到其周围(上下左右)的点，不可斜行。
@@ -186,3 +195,25 @@ for i in range(1,8):
 # 17、有两个序列a,b，大小都为n,序列元素的值任意整形数，无序;
 # 要求: 通过交换a,b中的元素，使[序列a元素的和]与[序列b元素的和]之间的差最 小。
 
+
+
+def my_split(strr,s):
+	result=[]
+	while s in strr:
+		index=strr.find(s)
+		result.append(strr[:index])
+		strr=strr[index+len(s):]
+	result.append(strr)
+	return result
+
+print my_split('21aab21cc21rf21gt','21')
+
+def my_find(strr,s):
+	if s in strr:
+		for i in range(len(strr)):
+			if strr[i:i+len(s)]==s:
+				return i
+		return -1
+	else:return -1
+
+print my_find('helloworldyell','ll')
