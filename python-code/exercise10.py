@@ -217,3 +217,21 @@ def my_find(strr,s):
 	else:return -1
 
 print my_find('helloworldyell','ll')
+
+#coding=utf-8
+from selenium import webdriver
+browser=webdriver.Firefox()
+browser.get('https://baidu.com')
+browser.find_element_by_id('kw').send_keys('python')
+browser.find_element_by_id('su').click()
+browser.quit()
+
+def my_replace(strr,src,des):
+	result=''
+	while src in strr:
+		index=strr.find(src)
+		result+=strr[:index]+des
+		strr=strr[index+len(src):]
+	return result+strr
+
+print my_replace('helloomygood','oo','YY')
