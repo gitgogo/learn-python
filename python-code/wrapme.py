@@ -21,8 +21,8 @@ print wrappedList.pop()
 print wrappedList
 print wrappedList.get()[3]
 
-f=WrapMe(open('a.txt','r')) #对文件包装
-f.get()
-f.readline()
-f.tell()
-f.close()
+# f=WrapMe(open('a.txt','r')) #对文件包装
+# f.get()
+# f.readline()
+# f.tell()
+# f.close()
