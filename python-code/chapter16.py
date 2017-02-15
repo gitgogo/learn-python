@@ -123,3 +123,52 @@ while True:
 	print data.strip()
 tcpCliSock.close()
 
+#Twisted Reactor时间戳服务器，创建一个使用Twisted Internet类的时间戳TCP服务器
+from twisted.internet import protocol,reactor
+from time import ctime
+
+PORT=21567
+
+class TSServProtocol(protocol.Protocol):
+	def connectionMade(self):
+		clnt=self.clnt=self.transport.getPeer().host
+		print '...connected from:',clnt
+	def dataReceived(self,data):
+		self.transport.write('[%s] %s'%(ctime(),data))
+
+factory=protocol.Factory() #工厂模式，每次有连接时会生产一个protocol对象
+factory.protocol=TSServProtocol  #实例化服务器
+print 'waiting for connection...'
+reactor.listenTCP(PORT,factory)  #监听等待服务请求
+reactor.run() 
+
+#创建Twisted Reactor TCP客户端
+from twisted.internet import protocol,reactor
+HOST='localhost'
+PORT=21567
+
+class TSClntProtocol(protocol.Protocol):
+	def sendData(self):
+		data=raw_input('> ')
+		if data:
+			print '...sending %s...'%data
+			self.transport.write(data)
+		else:
+			self.transport.loseConnection()
+
+	def connectionMade(self):
+		self.sendData()
+
+	def dataReceived(self,data):
+		print data
+		self.sendData()
+
+class TSClntFactory(protocol.ClientFactory):
+	protocol=TSClntProtocol
+	clientConnectionLost=clientConnectionFailed=lambda self,connector,reason:reactor.stop()
+
+reactor.connectTCP(HOST,PORT,TSClntFactory())
+reactor.run()
+
+
+
