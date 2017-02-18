@@ -1,20 +1,13 @@
 #coding=utf-8
-class LikeDict(object):
-	def __init__(self,attribut):
-		self.attribut=attribut
+import re
+p = re.compile(r'(\w+) (\w+)')
+s = 'i say, hello world!'
+#\2, \1表示分组引用，分别代表第二个分组，第一个分组
+print p.sub(r'\2 \1', s)
 
-	def __getitem__(self,key):
-		print self.attribut[key]
+#当repl为方法时，将匹配的结果m传入方法
+def func(m):
+    return m.group(1).title() + ' ' + m.group(2).title()
 
-	def __setitem__(self,key,value):
-		self.attribut[key]=value
-
-	def __delitem__(self,key):
-		del attribut[key]
-
-Dict={}
-likeDict=LikeDict(Dict)
-likeDict['a']=1
-likeDict['b']=2
-likeDict['b']
-likeDict['a']
+print p.sub(func, s)
+print p.findall(s)
