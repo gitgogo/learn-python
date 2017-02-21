@@ -11,3 +11,11 @@ def func(m):
 
 print p.sub(func, s)
 print p.findall(s)
+
+def pwd_check(pwd):
+	if re.match(r'\d{6,}$',pwd) or re.match(r'[a-z]{6,}$',pwd) or re.match(r'[A-Z]{6,}$',pwd):
+		print 'weak'
+	if re.match(r'\w*\d+[a-zA-Z]+',pwd):
+		print 'strong'
+
+pwd_check('hello123')

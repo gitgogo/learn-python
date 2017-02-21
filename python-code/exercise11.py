@@ -27,21 +27,31 @@ print re.search(r'[0-9]{4}(1[0-2]|0[1-9])(3[01]|[012][0-9])','time is20170921day
 print re.sub('\S+@\w+\.com|cn','ldjwyyx@163.com','email:wangli@gloryroad.com')
 
 # 9、匹配\home关键字:’re.match(‘\\\home’,’\home’)
+print re.match(r'\\home','\home').group()
 
 # 1、使用正则提取出字符串中的单词
+print re.findall(r'\b[a-zA-Z]+\b','hello world this 12 test')
 
 # 2、使用正则表达式匹配合法的邮件地址:
 # 国际域名格式如下: 域名由各国文字的特定字符集、英文字母、数字及“-”(即连字符或减号)任意组 合而成, 
 # 但开头及结尾均不能含有“-”，“-”不能连续出现。域名中字母不分大 小写。
 # 域名最长可达60个字节(包括后缀.com、.net、.org等)。 
+print re.search(r'.+@[^-]\w+-?\w+[^-]\.(com|net|org)$','hiehohAHo12@123hi-hel.net',re.I).group()
 
 # 3、提取字符串中合法的超链接地址
 # 比如:s = '<a href="http://www.gloryroad.cn">光荣之路官网</a>' 要求，
 # 给出的正则表达式能兼顾所有链接地址。
+print re.search(r'href="(https?://w{3}\..*\.(cn|com)")','<a href="http://www.gloryroad.cn">光荣之路官网</a>').group(1)
 
 # 4、统计文件中单词个数
+with open(filename) as f:
+	content=f.read()
+	print len(re.findall(r'\b[a-zA-Z]+\b',content))
 
 # 5、写一个函数，其中用正则验证密码的强度
+def pwd_check(pwd):
+	if re.match(r'\d{6,}$',pwd):
+		print 'weak'
 
 # 6、匹配ip的正则表达式:
 # r'^(([1-9]|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.){3}([1-9]|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])$'
