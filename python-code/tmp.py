@@ -1,21 +1,48 @@
 #coding=utf-8
 import re
-p = re.compile(r'(\w+) (\w+)')
-s = 'i say, hello world!'
-#\2, \1表示分组引用，分别代表第二个分组，第一个分组
-print p.sub(r'\2 \1', s)
+from openpyxl import Workbook
+from openpyxl.utils import get_column_letter
+from openpyxl.styles import Border, Side, PatternFill, Font, GradientFill, Alignment
+from openpyxl import Workbook
 
-#当repl为方法时，将匹配的结果m传入方法
-def func(m):
-    return m.group(1).title() + ' ' + m.group(2).title()
+def make_excel(row,column):
+	wb=Workbook()
+	ws=wb.active
 
-print p.sub(func, s)
-print p.findall(s)
+	thick = Side(border_style="thick", color="BA55D3")
+	double = Side(border_style="double", color="BA55D3")
+	border = Border(top=double, left=thick, right=thick, bottom=double)
+	font = Font(b=True, color="FF0000")
+	al = Alignment(horizontal="center", vertical="center")
+	fill = PatternFill("solid", fgColor="FFFF00")
+	ws.append([u'姓名',u'性别',u'学号',u'爱好',u'年龄'])
+	for i in range(row):
+		ws.append([u'张三',u'男',1,u'篮球',20])
+	for i in range(1,row):
+	    # for j in range(1,column+1):
+		for j in range(column):
+			my_cell=ws.rows[i][j]
+			my_cell.fill=fill
+			my_cell.border=border
+			my_cell.font=font
+			my_cell.alignment=al
 
-def pwd_check(pwd):
-	if re.match(r'\d{6,}$',pwd) or re.match(r'[a-z]{6,}$',pwd) or re.match(r'[A-Z]{6,}$',pwd):
-		print 'weak'
-	if re.match(r'\w*\d+[a-zA-Z]+',pwd):
-		print 'strong'
+	wb.save('f:\\test1.xlsx')
+make_excel(7,5)
+# print ws.rows
+# print ws.rows[1][2].value
+# print ws.columns[4][2].value
+# print ws.max_column
+# print ws.max_row
 
-pwd_check('hello123')
+# for row in ws.iter_rows():
+#     for cell in row:
+#         print cell,cell.value,cell.coordinate
+#     print 
+
+# for row in range(10, 20):
+#     for col in range(10, 20):
+#         ws.cell(column=col, row=row, value="{0}".format(get_column_letter(col)))  #get_column_letter函数可以把数字转换为列对应的字母
+# print(ws['J10'].value)
+
+import os
