@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>HTML编译工具</title>
+<script type="text/javascript" src="jquery-1.8.3.js"></script>
+<script type="text/javascript" src="tools.js"></script>
+<link rel="stylesheet" type="text/css" href="tools.css" />
+</head>
+
+<body>
+	<input type="button" id="test" value="刷新显示"/>
+    <p style="clear:both;"></p>
+	<div id="codeArea">
+    	<ul class="title edit">编辑您的代码：</ul>
+    	<textarea id="content" cols="5" rows="5" style="width:99%;height:470px;">
+		<html>
+
+		<body>
+
+		<h2>唐老鸭的地址：</h2>
+		<address>
+		Donald Duck<br />
+		BOX 555<br />
+		Disneyland<br />
+		USA<br />
+		</address>
+
+		<br />
+
+		<h2>W3School 的地址：</h2>
+		<address>
+		  <a href="mailto:service@w3school.com.cn">用户服务信箱</a><br />
+		  上海赢科投资有限公司<br />
+		  金桥开发区 789 号<br />
+		</address>
+
+		</body>
+		</html>
+
+		</textarea>
+    </div>
+    <div id="showArea">
+    	<ul class="title result">查看结果:</ul>
+        <ul id="showContent">
+        	
+        </ul>
+    </div>   
+</body>
+</html>

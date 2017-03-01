@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>HTML编译工具</title>
+<script type="text/javascript" src="jquery-1.8.3.js"></script>
+<script type="text/javascript" src="tools.js"></script>
+<link rel="stylesheet" type="text/css" href="tools.css" />
+</head>
+
+<body>
+	<input type="button" id="test" value="刷新显示"/>
+    <p style="clear:both;"></p>
+	<div id="codeArea">
+    	<ul class="title edit">编辑您的代码：</ul>
+    	<textarea id="content" cols="5" rows="5" style="width:99%;height:470px;">
+		一般表格
+		<table border="1">
+		<tr>
+		<td>row 1, cell 1</td>
+		<td>row 1, cell 2</td>
+		</tr>
+		<tr>
+		<td>row 2, cell 1</td>
+		<td>row 2, cell 2</td>
+		</tr>
+		</table>
+		带表头的表格
+		<table border="1">
+		<tr>
+		<th>Heading</th>
+		<th>Another Heading</th>
+		</tr>
+		<tr>
+		<td>row 1, cell 1</td>
+		<td>row 1, cell 2</td>
+		</tr>
+		<tr>
+		<td>row 2, cell 1</td>
+		<td>row 2, cell 2</td>
+		</tr>
+		</table>
+		表格中的空单元格、并带标题的
+		<table border="1">
+		<caption>我的标题</caption>
+		<tr>
+		<td>row 1, cell 1</td>
+		<td>row 1, cell 2</td>
+		</tr>
+		<tr>
+		<td></td>
+		<td>row 2, cell 2</td>
+		</tr>
+		</table>
+		</textarea>
+    </div>
+    <div id="showArea">
+    	<ul class="title result">查看结果:</ul>
+        <ul id="showContent">
+        	
+        </ul>
+    </div>   
+</body>
+</html>

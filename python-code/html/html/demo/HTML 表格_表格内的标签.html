@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>HTML编译工具</title>
+<script type="text/javascript" src="jquery-1.8.3.js"></script>
+<script type="text/javascript" src="tools.js"></script>
+<link rel="stylesheet" type="text/css" href="tools.css" />
+</head>
+
+<body>
+	<input type="button" id="test" value="刷新显示"/>
+    <p style="clear:both;"></p>
+	<div id="codeArea">
+    	<ul class="title edit">编辑您的代码：</ul>
+    	<textarea id="content" cols="5" rows="5" style="width:99%;height:470px;">
+		<html>
+
+		<body>
+
+		<table border="1">
+		<tr>
+		  <td>
+		   <p>这是一个段落。</p>
+		   <p>这是另一个段落。</p>
+		  </td>
+		  <td>这个单元包含一个表格：
+		   <table border="1">
+		   <tr>
+			 <td>A</td>
+			 <td>B</td>
+		   </tr>
+		   <tr>
+			 <td>C</td>
+			 <td>D</td>
+		   </tr>
+		   </table>
+		  </td>
+		</tr>
+		<tr>
+		  <td>这个单元包含一个列表：
+		   <ul>
+			<li>苹果</li>
+			<li>香蕉</li>
+			<li>菠萝</li>
+		   </ul>
+		  </td>
+		  <td>HELLO</td>
+		</tr>
+		</table>
+
+		</body>
+		</html>
+
+		</textarea>
+    </div>
+    <div id="showArea">
+    	<ul class="title result">查看结果:</ul>
+        <ul id="showContent">
+        	
+        </ul>
+    </div>   
+</body>
+</html>

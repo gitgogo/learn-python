@@ -1,0 +1,7 @@
+table tr--table row , td--table data
+单元格合并：默认占一份，clospan='2' , rowspan='2'
+有序列表--ui包含li ，无序列表--ol包含li
+dl  dt
+链接a href=""
+块级元素block element；行级元素inline element；内联元素：
+div  span

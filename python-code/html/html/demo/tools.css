@@ -1,0 +1,8 @@
+#codeArea,#showArea{width:45%;float:left;border:solid 1px #ccc;width:45%;height:500px;margin:0 5px;}
+textarea{resize:none;border:none;}
+*:focus{outline: none;}
+ul.title{margin:0px;padding:0px;color:#fff;font-size:14px;padding:5px;font-weight:bold;}
+ul.edit{background:#2C587C;}
+ul.result{background:#880000;}
+#showContent{height:auto;color:#000;}
+#showArea{overflow-y:auto;}

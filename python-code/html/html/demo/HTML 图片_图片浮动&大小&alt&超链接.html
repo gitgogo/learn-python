@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>HTML编译工具</title>
+    <script type="text/javascript" src="jquery-1.8.3.js"></script>
+    <script type="text/javascript" src="tools.js"></script>
+    <link rel="stylesheet" type="text/css" href="tools.css" />
+    <style>
+    img {
+        width: 100px;
+        height: 100px;
+    }
+    .clearfix:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden
+    }
+    .clearfix {
+        *+height: 1%;
+    }
+    </style>
+</head>
+
+<body>
+    <input type="button" id="test" value="刷新显示" />
+    <p style="clear:both;"></p>
+    <div id="codeArea">
+        <ul class="title edit">编辑您的代码：</ul>
+        <textarea id="content" cols="5" rows="5" style="width:99%;height:470px;">
+            <html>
+
+            <body>
+
+                <p class="clearfix">
+                    <img src="imgs/eg_background.jpg" alt="左浮动" align="left" /> 带有图像的一个段落。图像的 align 属性设置为 "left"。图像将浮动到文本的左侧。
+                </p>
+
+                <p class="clearfix">
+                    <img src="imgs/eg_background.jpg" alt="右浮动" align="right" /> 带有图像的一个段落。图像的 align 属性设置为 "right"。图像将浮动到文本的右侧。
+                </p>
+
+                <p class="clearfix">
+                    <img src="imgs/eg_background1.jpg" alt="测试图片" /> 带有图像的一个段落。图像的 align 属性设置为 "right"。图像将浮动到文本的右侧。
+                </p>
+
+                <a href="http://www.baidu.com"><img src="imgs/eg_background.jpg" alt="测试图片" />
+                </a>
+
+            </body>
+
+            </html>
+
+        </textarea>
+    </div>
+    <div id="showArea">
+        <ul class="title result">查看结果:</ul>
+        <ul id="showContent">
+
+        </ul>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>HTML编译工具</title>
+<script type="text/javascript" src="jquery-1.8.3.js"></script>
+<script type="text/javascript" src="tools.js"></script>
+<link rel="stylesheet" type="text/css" href="tools.css" />
+</head>
+
+<body>
+	<input type="button" id="test" value="刷新显示"/>
+    <p style="clear:both;"></p>
+	<div id="codeArea">
+    	<ul class="title edit">编辑您的代码：</ul>
+    	<textarea id="content" cols="5" rows="5" style="width:99%;height:470px;">
+		<!DOCTYPE html>
+		<html>
+		<head>
+		<style type="text/css">
+		div#container{width:500px}
+		div#header {background-color:#99bbbb;}
+		div#menu {background-color:#ffff99;height:200px;width:100px;float:left;}
+		div#content {background-color:#EEEEEE;height:200px;width:400px;float:left;}
+		div#footer {background-color:#99bbbb;clear:both;text-align:center;}
+		h1 {margin-bottom:0;}
+		h2 {margin-bottom:0;font-size:18px;}
+		ul {margin:0;}
+		li {list-style:none;}
+		</style>
+		</head>
+
+		<body>
+
+		<div id="container">
+
+		<div id="header">
+		<h1>Main Title of Web Page</h1>
+		</div>
+
+		<div id="menu">
+		<h2>Menu</h2>
+		<ul>
+		<li>HTML</li>
+		<li>CSS</li>
+		<li>JavaScript</li>
+		</ul>
+		</div>
+
+		<div id="content">Content goes here</div>
+
+		<div id="footer">Copyright W3School.com.cn</div>
+
+		</div>
+
+		</body>
+		</html>
+
+		</textarea>
+    </div>
+    <div id="showArea">
+    	<ul class="title result">查看结果:</ul>
+        <ul id="showContent">
+        	
+        </ul>
+    </div>   
+</body>
+</html>

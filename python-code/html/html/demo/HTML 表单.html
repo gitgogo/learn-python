@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>HTML编译工具</title>
+<script type="text/javascript" src="jquery-1.8.3.js"></script>
+<script type="text/javascript" src="tools.js"></script>
+<link rel="stylesheet" type="text/css" href="tools.css" />
+</head>
+
+<body>
+	<input type="button" id="test" value="刷新显示"/>
+    <p style="clear:both;"></p>
+	<div id="codeArea">
+    	<ul class="title edit">编辑您的代码：</ul>
+    	<textarea id="content" cols="5" rows="5" style="width:99%;height:470px;">
+		<html>
+		<body>
+
+		<form action="/example/html/form_action.php" method="get">
+		  <p>First name: <input type="text" name="fname" /></p>
+		  <p>Last name: <input type="text" name="lname" /></p>
+		  <p><input type="radio" name="sex" value="male" /> Male</p>
+		  <p><input type="radio" name="sex" value="female" /> Female</p>
+		  <p><input type="checkbox" name="bike" value="bike" /></p>
+		  <p><input type="checkbox" name="car" value="car" /></p>
+		  <input type="submit" value="Submit" />
+		</form>
+
+		<p>请单击确认按钮，输入会发送到服务器上名为 "form_action.php" 的页面。</p>
+
+		</body>
+		</html>
+
+		</textarea>
+    </div>
+    <div id="showArea">
+    	<ul class="title result">查看结果:</ul>
+        <ul id="showContent">
+        	
+        </ul>
+    </div>   
+</body>
+</html>

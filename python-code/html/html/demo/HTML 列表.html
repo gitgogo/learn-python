@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>HTML编译工具</title>
+<script type="text/javascript" src="jquery-1.8.3.js"></script>
+<script type="text/javascript" src="tools.js"></script>
+<link rel="stylesheet" type="text/css" href="tools.css" />
+</head>
+
+<body>
+	<input type="button" id="test" value="刷新显示"/>
+    <p style="clear:both;"></p>
+	<div id="codeArea">
+    	<ul class="title edit">编辑您的代码：</ul>
+    	<textarea id="content" cols="5" rows="5" style="width:99%;height:470px;">
+		<h4>一个无序列表：</h4>
+		<ul>
+		  <li>咖啡</li>
+		  <li>茶</li>
+		  <li>牛奶</li>
+		</ul>
+		
+		<h4>一个有序列表：</h4>
+		<ol>
+		  <li>咖啡</li>
+		  <li>茶</li>
+		  <li>牛奶</li>
+		</ol>
+		
+		<dl>
+		<dt>Coffee</dt>
+		<dd>Black hot drink</dd>
+		<dt>Milk</dt>
+		<dd>White cold drink</dd>
+		</dl>
+		
+		<h2>一个定义列表：</h2>
+		<dl>
+		   <dt>计算机</dt>
+		   <dd>用来计算的仪器 ... ...</dd>
+		   <dt>显示器</dt>
+		   <dd>以视觉方式显示信息的装置 ... ...</dd>
+		</dl>
+		
+		<h4>一个嵌套列表：</h4>
+		<ul>
+		  <li>咖啡</li>
+		  <li>茶
+			<ul>
+			<li>红茶</li>
+			<li>绿茶</li>
+			</ul>
+		  </li>
+		  <li>牛奶</li>
+		</ul>
+		</textarea>
+    </div>
+    <div id="showArea">
+    	<ul class="title result">查看结果:</ul>
+        <ul id="showContent">
+        	
+        </ul>
+    </div>   
+</body>
+</html>
