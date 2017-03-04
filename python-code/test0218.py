@@ -1,14 +1,14 @@
 #coding=utf-8
 import re
-# def match(s1,s2):
-# 	content=re.search(s1,s2)
-# 	if content:
-# 		print content.group()
-# 	else:
-# 		print 'have no %s'%s1
+def match(s1,s2):
+	content=re.search(s1,s2)
+	if content:
+		print content.group()
+	else:
+		print 'have no %s'%s1
 
-# match('python','hellopython')
-# match('python1','hellopython')
+match('python','hellopython')
+match('python1','hellopython')
 
 func=lambda s1,s2:s1 if re.search(s1,s2) else 'not found'
 print func('python1','hellopython')
