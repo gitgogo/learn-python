@@ -60,3 +60,44 @@ driver.close()
 3 图片分别保存在当前日期的目录下
 4 网址要保存在某个数据文件中
 '''
+from selenium import webdriver
+from selenium.common.exceptions import TimeoutException
+import time
+import os
+import datetime
+
+class GetScreenshot(object):
+    def __init__(self,browser):
+        self.browser=browser
+
+    def get_screenshot(self,url):
+        if self.browser.lower()=='firefox':
+            driver= webdriver.Firefox(executable_path='/Users/ralphliu/Document/webdriver/geckodriver')
+        elif self.browser.lower()=='chrome':
+            driver= webdriver.Chrome(executable_path='/Users/ralphliu/Document/webdriver/chromedriver')
+        elif self.browser.lower()=='safari':
+            driver= webdriver.Safari()
+
+        driver.set_page_load_timeout(4)
+        try:
+            driver.get(url)
+            time.sleep(3)
+        except TimeoutException,e:
+            print 'loading...'
+
+        desdir=str(datetime.date.today())
+        if not os.path.exists(desdir):
+            os.mkdir(desdir)
+        filepath=os.path.join(desdir,url.split('.')[1]+'.png')
+        driver.get_screenshot_as_file(filepath)
+        #save url and png
+        # os.mkdir(os.path.join(os.curdir,datetime.date.today())
+        with open('urls.txt','w') as f:
+            f.writelines([driver.current_url])
+
+        driver.quit()
+
+firefox=GetScreenshot('firefox')
+firefox.get_screenshot('https://www.baidu.com')
+firefox.get_screenshot('https://www.dict.youdao.com')
+

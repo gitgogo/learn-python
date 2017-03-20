@@ -16,3 +16,191 @@
 JavaScript error: https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/plugins/every_cookie_mac_82990d4.js, line 4: ReferenceError: c is not defined
 [Child 13999] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
 [Child 13999] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+1489325000331	geckodriver	INFO	Listening on 127.0.0.1:64685
+1489325001524	mozprofile::profile	INFO	Using profile path /var/folders/7r/h2_t3bsx0lz6v6hfh3t4f__h0000gn/T/rust_mozprofile.tpSlseD57R2C
+1489325001525	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1489325001591	geckodriver::marionette	INFO	Connecting to Marionette on localhost:64694
+1489325002841	Marionette	INFO	Listening on port 64694
+2017-03-12 21:23:25.819 plugin-container[26916:1813560] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x933b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-03-12 21:23:25.822 plugin-container[26916:1813560] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9603, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1489325033273	geckodriver	INFO	Listening on 127.0.0.1:64736
+1489325034436	mozprofile::profile	INFO	Using profile path /var/folders/7r/h2_t3bsx0lz6v6hfh3t4f__h0000gn/T/rust_mozprofile.NOM46IzLfsM8
+1489325034438	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1489325034445	geckodriver::marionette	INFO	Connecting to Marionette on localhost:64745
+1489325038003	Marionette	INFO	Listening on port 64745
+2017-03-12 21:24:03.401 plugin-container[26938:1814303] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x953b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-03-12 21:24:03.409 plugin-container[26938:1814303] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9803, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+JavaScript error: https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=python&json=1&p=3&sid=1426_21102_22036_20719&csor=6&pwd=pytho&cb=jQuery110208242443499143947_1489325044021&_=1489325044028, line 1: TypeError: jQuery110208242443499143947_1489325044021 is not a function
+JavaScript warning: http://pos.baidu.com/lcmm?rdid=1997633&dc=3&di=u1997633&dri=0&dis=0&dai=1&ps=0x0&coa=wn%3D2%26hn%3D8&dcb=___adblockplus&dtm=HTML_POST&dvi=0.0&dci=-1&dpt=none&tsr=0&tpr=1489325054034&ti=Python_%E7%99%BE%E5%BA%A6%E7%99%BE%E7%A7%91&ari=2&dbv=0&drs=3&pcs=1373x775&pss=1373x17381&cfv=0&cpl=0&chi=1&cce=true&cec=UTF-8&tlm=1489325054&rw=775&ltu=http%3A%2F%2Fbaike.baidu.com%2Flink%3Furl%3DeQ7sjw8b9CTXshF40zJBTiKk6_ciaKTU0wRCvyaroSbr95LYGt73130Y9R_1JlvPmgO62DLyqfSCismPgwroXq&ltr=https%3A%2F%2Fwww.baidu.com%2Flink%3Furl%3DeQ7sjw8b9CTXshF40zJBTiKk6_ciaKTU0wRCvyaroSbr95LYGt73130Y9R_1JlvPmgO62DLyqfSCismPgwroXq%26wd%3D%26eqid%3De4a25f86000c9ca50000000358c54bf8&ecd=1&uc=1373x877&pis=-1x-1&ccd=24&cja=false&cmi=0&col=zh-CN&cdo=-1&sr=1440x900&tcn=1489325054&qn=c491a1bb836b24bb&tt=1489325053955.88.295.297, line 119: unreachable code after return statement
+JavaScript warning: http://pos.baidu.com/lcmm?rdid=1997633&dc=3&di=u1997633&dri=0&dis=0&dai=1&ps=0x0&coa=wn%3D2%26hn%3D8&dcb=___adblockplus&dtm=HTML_POST&dvi=0.0&dci=-1&dpt=none&tsr=0&tpr=1489325054034&ti=Python_%E7%99%BE%E5%BA%A6%E7%99%BE%E7%A7%91&ari=2&dbv=0&drs=3&pcs=1373x775&pss=1373x17381&cfv=0&cpl=0&chi=1&cce=true&cec=UTF-8&tlm=1489325054&rw=775&ltu=http%3A%2F%2Fbaike.baidu.com%2Flink%3Furl%3DeQ7sjw8b9CTXshF40zJBTiKk6_ciaKTU0wRCvyaroSbr95LYGt73130Y9R_1JlvPmgO62DLyqfSCismPgwroXq&ltr=https%3A%2F%2Fwww.baidu.com%2Flink%3Furl%3DeQ7sjw8b9CTXshF40zJBTiKk6_ciaKTU0wRCvyaroSbr95LYGt73130Y9R_1JlvPmgO62DLyqfSCismPgwroXq%26wd%3D%26eqid%3De4a25f86000c9ca50000000358c54bf8&ecd=1&uc=1373x877&pis=-1x-1&ccd=24&cja=false&cmi=0&col=zh-CN&cdo=-1&sr=1440x900&tcn=1489325054&qn=c491a1bb836b24bb&tt=1489325053955.88.295.297, line 119: unreachable code after return statement
+1489325055688	Marionette	INFO	New connections will no longer be accepted
+[Child 26938] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2143
+[Child 26938] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2143
+1489325804529	geckodriver	INFO	Listening on 127.0.0.1:65083
+1489325805645	mozprofile::profile	INFO	Using profile path /var/folders/7r/h2_t3bsx0lz6v6hfh3t4f__h0000gn/T/rust_mozprofile.GOOJx2D3ll7p
+1489325805647	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1489325805652	geckodriver::marionette	INFO	Connecting to Marionette on localhost:65092
+1489325806676	Marionette	INFO	Listening on port 65092
+2017-03-12 21:36:49.270 plugin-container[27064:1823266] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x953b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-03-12 21:36:49.272 plugin-container[27064:1823266] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9803, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1489326084183	geckodriver	INFO	Listening on 127.0.0.1:65261
+1489326085326	mozprofile::profile	INFO	Using profile path /var/folders/7r/h2_t3bsx0lz6v6hfh3t4f__h0000gn/T/rust_mozprofile.7FDW0wrzuWCQ
+1489326085327	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1489326085334	geckodriver::marionette	INFO	Connecting to Marionette on localhost:65270
+1489326086382	Marionette	INFO	Listening on port 65270
+2017-03-12 21:41:29.115 plugin-container[27132:1826892] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9537, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-03-12 21:41:29.117 plugin-container[27132:1826892] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9803, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+JavaScript error: https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/plugins/every_cookie_mac_82990d4.js, line 4: ReferenceError: c is not defined
+1489326637808	geckodriver	INFO	Listening on 127.0.0.1:65458
+1489326638916	mozprofile::profile	INFO	Using profile path /var/folders/7r/h2_t3bsx0lz6v6hfh3t4f__h0000gn/T/rust_mozprofile.FO7yTDH3XSAz
+1489326638917	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1489326638924	geckodriver::marionette	INFO	Connecting to Marionette on localhost:65468
+1489326639992	Marionette	INFO	Listening on port 65468
+2017-03-12 21:50:42.739 plugin-container[27245:1833029] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x933b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-03-12 21:50:42.740 plugin-container[27245:1833029] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9603, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+JavaScript error: https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/plugins/every_cookie_mac_82990d4.js, line 4: ReferenceError: c is not defined
+1489326684859	geckodriver	INFO	Listening on 127.0.0.1:49175
+1489326686046	mozprofile::profile	INFO	Using profile path /var/folders/7r/h2_t3bsx0lz6v6hfh3t4f__h0000gn/T/rust_mozprofile.ysycaNc7Ss38
+1489326686051	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1489326686056	geckodriver::marionette	INFO	Connecting to Marionette on localhost:49185
+1489326687856	Marionette	INFO	Listening on port 49185
+2017-03-12 21:51:33.921 plugin-container[27275:1834063] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x952f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-03-12 21:51:33.928 plugin-container[27275:1834063] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9803, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+JavaScript error: https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/plugins/every_cookie_mac_82990d4.js, line 4: ReferenceError: c is not defined
+JavaScript warning: http://pos.baidu.com/ycdm?rdid=1997633&dc=3&di=u1997633&dri=0&dis=0&dai=1&ps=0x0&coa=wn%3D2%26hn%3D8&dcb=___adblockplus&dtm=HTML_POST&dvi=0.0&dci=-1&dpt=none&tsr=0&tpr=1489326709722&ti=Python_%E7%99%BE%E5%BA%A6%E7%99%BE%E7%A7%91&ari=2&dbv=0&drs=3&pcs=1373x775&pss=1373x17381&cfv=0&cpl=0&chi=1&cce=true&cec=UTF-8&tlm=1489326709&rw=775&ltu=http%3A%2F%2Fbaike.baidu.com%2Flink%3Furl%3DBu7Au33Gh7-9hFXksNPLID0U4VuY-nw7x40h4HucrJezbE2UjChYflpXA3i8KDKJzsi3znJxTctKikuy5SD8WK&ltr=https%3A%2F%2Fwww.baidu.com%2Flink%3Furl%3DBu7Au33Gh7-9hFXksNPLID0U4VuY-nw7x40h4HucrJezbE2UjChYflpXA3i8KDKJzsi3znJxTctKikuy5SD8WK%26wd%3D%26eqid%3Db7ce837e000c54c90000000358c55270&ecd=1&uc=1373x877&pis=-1x-1&ccd=24&cja=false&cmi=0&col=zh-CN&cdo=-1&sr=1440x900&tcn=1489326710&qn=78cdac3298cc99f6&tt=1489326709649.82.334.337, line 119: unreachable code after return statement
+JavaScript warning: http://pos.baidu.com/ycdm?rdid=1997633&dc=3&di=u1997633&dri=0&dis=0&dai=1&ps=0x0&coa=wn%3D2%26hn%3D8&dcb=___adblockplus&dtm=HTML_POST&dvi=0.0&dci=-1&dpt=none&tsr=0&tpr=1489326709722&ti=Python_%E7%99%BE%E5%BA%A6%E7%99%BE%E7%A7%91&ari=2&dbv=0&drs=3&pcs=1373x775&pss=1373x17381&cfv=0&cpl=0&chi=1&cce=true&cec=UTF-8&tlm=1489326709&rw=775&ltu=http%3A%2F%2Fbaike.baidu.com%2Flink%3Furl%3DBu7Au33Gh7-9hFXksNPLID0U4VuY-nw7x40h4HucrJezbE2UjChYflpXA3i8KDKJzsi3znJxTctKikuy5SD8WK&ltr=https%3A%2F%2Fwww.baidu.com%2Flink%3Furl%3DBu7Au33Gh7-9hFXksNPLID0U4VuY-nw7x40h4HucrJezbE2UjChYflpXA3i8KDKJzsi3znJxTctKikuy5SD8WK%26wd%3D%26eqid%3Db7ce837e000c54c90000000358c55270&ecd=1&uc=1373x877&pis=-1x-1&ccd=24&cja=false&cmi=0&col=zh-CN&cdo=-1&sr=1440x900&tcn=1489326710&qn=78cdac3298cc99f6&tt=1489326709649.82.334.337, line 119: unreachable code after return statement
+JavaScript error: https://gss0.baidu.com/9rA4cT8aBw9FktbgoI7O1ygwehsv/static/api/js/trans/logger.js?v=d16ec0e3.js, line 1: TypeError: n.ajax.request is not a function
+1489419415172	geckodriver	INFO	Listening on 127.0.0.1:51899
+1489419416285	mozprofile::profile	INFO	Using profile path /var/folders/7r/h2_t3bsx0lz6v6hfh3t4f__h0000gn/T/rust_mozprofile.Ec5FhcQpf0hm
+1489419416288	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1489419416321	geckodriver::marionette	INFO	Connecting to Marionette on localhost:51908
+1489419417586	Marionette	INFO	Listening on port 51908
+2017-03-13 23:37:00.026 plugin-container[29448:1973812] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x953b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-03-13 23:37:00.029 plugin-container[29448:1973812] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9803, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+1489420984281	geckodriver	INFO	Listening on 127.0.0.1:52253
+1489420985351	mozprofile::profile	INFO	Using profile path /var/folders/7r/h2_t3bsx0lz6v6hfh3t4f__h0000gn/T/rust_mozprofile.q5BDJwy2dZLj
+1489420985353	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1489420985358	geckodriver::marionette	INFO	Connecting to Marionette on localhost:52262
+1489420986188	Marionette	INFO	Listening on port 52262
+1489420988046	Marionette	WARN	Using deprecated data structure for setting timeouts
+1489420988068	geckodriver	INFO	Listening on 127.0.0.1:52288
+2017-03-14 00:03:08.169 plugin-container[29677:1989481] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x953b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-03-14 00:03:08.175 plugin-container[29677:1989481] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9803, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1489420989146	mozprofile::profile	INFO	Using profile path /var/folders/7r/h2_t3bsx0lz6v6hfh3t4f__h0000gn/T/rust_mozprofile.RpLlvzvWyIiC
+1489420989148	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1489420989153	geckodriver::marionette	INFO	Connecting to Marionette on localhost:52302
+1489420990089	Marionette	INFO	Listening on port 52302
+2017-03-14 00:03:12.137 plugin-container[29684:1989681] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x953b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-03-14 00:03:12.141 plugin-container[29684:1989681] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9803, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+JavaScript error: https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/plugins/every_cookie_mac_82990d4.js, line 4: ReferenceError: c is not defined
+1489420992772	geckodriver	INFO	Listening on 127.0.0.1:52341
+1489420993850	mozprofile::profile	INFO	Using profile path /var/folders/7r/h2_t3bsx0lz6v6hfh3t4f__h0000gn/T/rust_mozprofile.qQDavuJw4MMg
+1489420993851	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1489420993856	geckodriver::marionette	INFO	Connecting to Marionette on localhost:52352
+1489420994843	Marionette	INFO	Listening on port 52352
+2017-03-14 00:03:17.370 plugin-container[29688:1989928] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x952f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-03-14 00:03:17.371 plugin-container[29688:1989928] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9803, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1489445904634	geckodriver	INFO	Listening on 127.0.0.1:53020
+1489445905854	mozprofile::profile	INFO	Using profile path /var/folders/7r/h2_t3bsx0lz6v6hfh3t4f__h0000gn/T/rust_mozprofile.uTn3qxmdBfJu
+1489445905856	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1489445905863	geckodriver::marionette	INFO	Connecting to Marionette on localhost:53029
+1489445907191	Marionette	INFO	Listening on port 53029
+1489445909647	Marionette	WARN	Using deprecated data structure for setting timeouts
+2017-03-14 06:58:29.779 plugin-container[30245:2026297] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9337, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-03-14 06:58:29.783 plugin-container[30245:2026297] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9603, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+JavaScript error: https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/plugins/every_cookie_mac_82990d4.js, line 4: ReferenceError: c is not defined
+1489445939265	geckodriver	INFO	Listening on 127.0.0.1:53089
+1489445940337	mozprofile::profile	INFO	Using profile path /var/folders/7r/h2_t3bsx0lz6v6hfh3t4f__h0000gn/T/rust_mozprofile.wUB79Lyi74P5
+1489445940338	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1489445940343	geckodriver::marionette	INFO	Connecting to Marionette on localhost:53098
+1489445941180	Marionette	INFO	Listening on port 53098
+1489445943030	Marionette	WARN	Using deprecated data structure for setting timeouts
+2017-03-14 06:59:03.161 plugin-container[30276:2027124] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x933b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-03-14 06:59:03.166 plugin-container[30276:2027124] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9603, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+JavaScript error: https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/plugins/every_cookie_mac_82990d4.js, line 4: ReferenceError: c is not defined
+1489445946797	Marionette	INFO	New connections will no longer be accepted
+[Child 30276] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2143
+[Child 30276] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2143
+1489820997076	geckodriver	INFO	Listening on 127.0.0.1:56329
+1489820998142	mozprofile::profile	INFO	Using profile path /var/folders/7r/h2_t3bsx0lz6v6hfh3t4f__h0000gn/T/rust_mozprofile.ZtrttXg0coYn
+1489820998144	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1489820998148	geckodriver::marionette	INFO	Connecting to Marionette on localhost:56334
+1489820999031	Marionette	INFO	Listening on port 56334
+2017-03-18 15:10:01.187 plugin-container[40516:2770461] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x962f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-03-18 15:10:01.193 plugin-container[40516:2770461] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9a03, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1489821001260	Marionette	INFO	New connections will no longer be accepted
+[Child 40516] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2143
+[Child 40516] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2143
+1489821055957	geckodriver	INFO	Listening on 127.0.0.1:56362
+1489821057082	mozprofile::profile	INFO	Using profile path /var/folders/7r/h2_t3bsx0lz6v6hfh3t4f__h0000gn/T/rust_mozprofile.SrEIGgkNOBJG
+1489821057083	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1489821057088	geckodriver::marionette	INFO	Connecting to Marionette on localhost:56367
+1489821058030	Marionette	INFO	Listening on port 56367
+2017-03-18 15:11:00.391 plugin-container[40547:2771807] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9537, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-03-18 15:11:00.396 plugin-container[40547:2771807] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9803, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1489821063507	Marionette	INFO	New connections will no longer be accepted
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+[Child 40547] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2143
+[Child 40547] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2143
+1489821189029	geckodriver	INFO	Listening on 127.0.0.1:56425
+1489821190107	mozprofile::profile	INFO	Using profile path /var/folders/7r/h2_t3bsx0lz6v6hfh3t4f__h0000gn/T/rust_mozprofile.9I6pZnxLpSIu
+1489821190109	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1489821190114	geckodriver::marionette	INFO	Connecting to Marionette on localhost:56431
+1489821190993	Marionette	INFO	Listening on port 56431
+2017-03-18 15:13:13.137 plugin-container[40588:2773968] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x953b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-03-18 15:13:13.143 plugin-container[40588:2773968] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9903, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+Invalid port. Exiting...
+1489931351968	geckodriver	INFO	Listening on 127.0.0.1:54953
+1489931353157	mozprofile::profile	INFO	Using profile path /var/folders/7r/h2_t3bsx0lz6v6hfh3t4f__h0000gn/T/rust_mozprofile.NNanGgpEzf1X
+1489931353160	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1489931353167	geckodriver::marionette	INFO	Connecting to Marionette on localhost:54963
+1489931354067	Marionette	INFO	Listening on port 54963
+2017-03-19 21:49:16.237 plugin-container[48291:3271101] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x953b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-03-19 21:49:16.239 plugin-container[48291:3271101] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9803, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 75: TypeError: this._recipeManager is null
+1489931510263	addons.productaddons	WARN	Failed downloading via XHR, status: 0, reason: error
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+1489933017011	Marionette	WARN	Using deprecated data structure for setting timeouts
