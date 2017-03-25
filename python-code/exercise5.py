@@ -251,7 +251,24 @@ def my_strip(strr,str_strip=' '):
 	return result1[::-1]
 print my_strip('aaagda bsaa','a')
 # 19、报数问题:有n个人围成一圈，顺序排号。从第一个人开始报数(从1到3报数) ，凡报到3的人退出圈子，问最后留下的是原来第几号的那位 
+def count_game(seq):
+    total=count=0
+    while True:
+        if total==len(seq) and len(seq)!=1:
+            total=0
+        if len(seq)>1:
+            total+=1
+            count+=1
+            if count==3:
+                # print "%s u'退出'"%seq[total-1]
+                seq.remove(seq[total-1])
+                count=0
+                total-=1
+        else:
+            break
+    return seq[0]  
 
+print 'the last one is ',count_game(range(1,12))
 # 20、由单个字母组成的list，从键盘读入两个整数m、n(n>m)，打印出list[m,n]之间 的字母能组成的所有n-m+1位不同的字符串
 
 

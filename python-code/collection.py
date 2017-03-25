@@ -6,6 +6,15 @@ def get_random_string(num):
     return ''.join(random.choice(string.letters+string.digits) for _ in range(num))
 
 print get_random_string(15)
+#处理商品价格，取有效位小数
+def handle_price(price):
+    price_str=str(price)[::-1]
+    for index,num in enumerate(price_str):
+        if num!='0':
+            return price_str[index:][::-1].strip('.')
+print handle_price(23.000012000)
+print handle_price(23.000)
+
 '''
 自动化测试网站登录、退出功能
 '''

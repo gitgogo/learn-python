@@ -14,7 +14,7 @@ class VisitSogouByIE(unittest.TestCase):
         #self.driver = webdriver.Ie(executable_path = "e:\\IEDriverServer")
         
     def test_doubleClick(self):
-        url = "file:///private/etc/apache2/web/test_doubleclick.html"
+        url = "file:///Users/ralphliu/work/web/test_doubleclick.html"
         # 访问自定义的html网页
         self.driver.get(url)
         # 获取页面输入元素
@@ -43,7 +43,7 @@ class VisitSogouByIE(unittest.TestCase):
         self.driver = webdriver.Chrome(executable_path = "/Users/ralphliu/Document/webdriver/chromedriver")
         
     def test_printSelectText(self):
-        url = "file:///private/etc/apache2/web/test_select.html"
+        url = "file:///Users/ralphliu/work/web/test_select.html"
         # 访问自定义的html网页
         self.driver.get(url)
         # 使用name属性找到页面上name属性为“fruit”的下拉列表元素
@@ -73,7 +73,7 @@ class VisitSogouByIE(unittest.TestCase):
         self.driver = webdriver.Chrome(executable_path = "/Users/ralphliu/Document/webdriver/chromedriver")
         
     def test_operateDropList(self):
-        url = "file:///private/etc/apache2/web/test_select.html"
+        url = "file:///Users/ralphliu/work/web/test_select.html"
         # 访问自定义的html网页
         self.driver.get(url)
         # 导入Select模块
@@ -125,7 +125,7 @@ class VisitSogouByIE(unittest.TestCase):
         self.driver = webdriver.Chrome(executable_path = "/Users/ralphliu/Document/webdriver/chromedriver")
         
     def test_checkSelectText(self):
-        url = "file:///private/etc/apache2/web/test_select.html"
+        url = "file:///Users/ralphliu/work/web/test_select.html"
         # 访问自定义的html网页
         self.driver.get(url)
         # 导入Select模块
@@ -157,7 +157,7 @@ class VisitSogouByIE(unittest.TestCase):
         self.driver = webdriver.Chrome(executable_path = "/Users/ralphliu/Document/webdriver/chromedriver")
         
     def test_operateMultipleOptionDropList(self):
-        url = "file:///private/etc/apache2/web/test_input_select.html"
+        url = "file:///Users/ralphliu/work/web/test_input_select.html"
         # 访问自定义的html网页
         self.driver.get(url)
         from selenium.webdriver.common.keys import Keys
@@ -188,7 +188,7 @@ class VisitSogouByIE(unittest.TestCase):
         self.driver = webdriver.Chrome(executable_path = "/Users/ralphliu/Document/webdriver/chromedriver")
         
     def test_operateRadio(self):
-        url = "file:///private/etc/apache2/web/test_radio.html"
+        url = "file:///Users/ralphliu/work/web/test_radio.html"
         # 访问自定义的html网页
         self.driver.get(url)
         # 使用xpath定位获取value属性值为'berry'的input元素对象，也就是“草莓”选项
@@ -232,7 +232,7 @@ class VisitSogouByIE(unittest.TestCase):
         self.driver = webdriver.Chrome(executable_path = "/Users/ralphliu/Document/webdriver/chromedriver")
         
     def test_operateCheckBox(self):
-        url = "file:///private/etc/apache2/web/test_checkbox.html"
+        url = "file:///Users/ralphliu/work/web/test_checkbox.html"
         # 访问自定义的html网页
         self.driver.get(url)
         # 使用xpath定位获取value属性值为'berry'的input元素对象，也就是“草莓”选项
