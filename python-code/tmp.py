@@ -1,10 +1,10 @@
 #coding=utf-8
-import unittest
-import time
-from selenium import webdriver
-from selenium.webdriver import ActionChains
-from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.common.keys import Keys
-import traceback
-from selenium.common.exceptions import NoSuchElementException
+def handle_money(money):
+    money_int=str(money).split('.')[0][::-1]
+    result=''
+    for index in range(len(money_int)):
+        if not index%3:
+            result+=money_int[index:index+3]+','
+    return result.strip(',')[::-1]
 
+print handle_money(5674832648)

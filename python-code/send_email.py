@@ -1,67 +1,4 @@
 #coding=utf-8
-#随机生成指定长度的数字字母序列
-import random
-import string
-def get_random_string(num):
-    return ''.join(random.choice(string.letters+string.digits) for _ in range(num))
-
-print get_random_string(15)
-#处理商品价格，取有效位小数
-def handle_price(price):
-    price_str=str(price)[::-1]
-    for index,num in enumerate(price_str):
-        if num!='0':
-            return price_str[index:][::-1].strip('.')
-print handle_price(23.000012000)
-print handle_price(23.000)
-
-'''
-自动化测试网站登录、退出功能
-'''
-#coding=utf-8
-import unittest
-from time import sleep
-from selenium import webdriver
-
-class MyTest(unittest.TestCase):
-    def setUp(self):
-        self.userName='18810936553'
-        self.passwd='000000'
-        self.browser = webdriver.Chrome(executable_path = "/Users/ralphliu/Document/webdriver/chromedriver")
-        self.browser.maximize_window()
-
-    def test_login(self):
-        self.browser.get('https://www.9drug.com')
-        sleep(4)
-        self.assertTrue(u'九药网' in self.browser.title)
-        login=self.browser.find_element_by_link_text(u'登录')
-        login.click()
-        sleep(3)
-        self.assertEqual(u'用户登录_九药网',self.browser.title)
-        self.browser.find_element_by_id('userName').send_keys(self.userName)
-        self.browser.find_element_by_id('passWord').send_keys(self.passwd)
-        #cancel auto login
-        auto_login=self.browser.find_element_by_name('auto_login')
-        if auto_login.is_selected():
-            auto_login.click()
-        self.browser.find_element_by_id('login_btn').click()
-        sleep(2)
-        name=self.browser.find_element_by_xpath("//div[@class='login_btn']/child::a")
-        self.assertEqual(u'出黄金甲AS',name.text)
-        #logout
-        self.browser.find_element_by_xpath("//div[@class='regist_btn']/child::a").click()
-        sleep(2)
-        assert u'免费注册' in self.browser.page_source
-
-    def tearDown(self):
-        self.browser.quit()
-
-if __name__ == '__main__':
-    unittest.main()
-
-#自动化发送每日练习作业
-
-#coding=utf-8
 import unittest
 import time
 import os
@@ -103,17 +40,23 @@ class AutoSendEmail(unittest.TestCase):
         # with open(filepath) as f:
         #     for line in f:
         with open(self.filepath) as f:
-            content=f.read().decode('utf-8','ignor')
             body=self.browser.find_element('xpath',"html/body")
             body.send_keys(u'#自动发送每日练习'+os.linesep)
-            body.send_keys(content)
+            for line in f:
+                body.send_keys(line.decode('utf-8','ignor'))
+
+            # content=f.read().decode('utf-8','ignor')
+            # body=self.browser.find_element('xpath',"html/body")
+            # body.send_keys(u'#自动发送每日练习'+os.linesep)
+            # body.send_keys(content)
         time.sleep(2)
         #跳出最外层页面
         self.browser.switch_to.default_content()
         #切换到有发送按钮的页面iframe
         self.browser.switch_to_frame('mainFrame')
         self.browser.find_element_by_link_text(u'发送').click()
-        self.assertTrue(u'成功' in self.browser.page_source)
+        time.sleep(2)
+        self.assertTrue(u'邮件已发送' in self.browser.page_source)
         #跳出最外层页面
         self.browser.switch_to.default_content()
         # 点击退出按钮

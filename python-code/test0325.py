@@ -303,8 +303,7 @@ class VisitSogouByIE(unittest.TestCase):
             print u"网页标题是“你喜欢的水果”"
             # 等待10秒，直到要找的按钮出现
             element = WebDriverWait(self.driver, 10).until\
-                (lambda x: x.find_element_by_xpath\
-                    ("//input[@value='Display alert box']"))
+                (lambda x: x.find_element_by_xpath("//input[@value='Display alert box']"))
             element.click()
             # 等待alert框出现
             alert = wait.until(EC.alert_is_present())
