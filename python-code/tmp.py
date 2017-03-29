@@ -1,10 +1,23 @@
 #coding=utf-8
-def handle_money(money):
-    money_int=str(money).split('.')[0][::-1]
-    result=''
-    for index in range(len(money_int)):
-        if not index%3:
-            result+=money_int[index:index+3]+','
-    return result.strip(',')[::-1]
+import thread
+from time import sleep,ctime
 
-print handle_money(5674832648)
+def loop0():
+    print 'start loop 0 at:',ctime()
+    sleep(4)
+    print 'loop 0 done at:',ctime()
+
+def loop1():
+    print 'start loop 1 at:',ctime()
+    sleep(2)
+    print 'loop 1 done at:',ctime()
+
+def main():
+    print 'starting at:',ctime()
+    thread.start_new_thread(loop0,())
+    thread.start_new_thread(loop1,())
+    sleep(6)
+    print 'all done at:',ctime()
+
+if __name__ == '__main__':
+    main()

@@ -41,7 +41,7 @@ class AutoSendEmail(unittest.TestCase):
         #     for line in f:
         with open(self.filepath) as f:
             body=self.browser.find_element('xpath',"html/body")
-            body.send_keys(u'#自动发送每日练习'+os.linesep)
+            # body.send_keys(u'#自动发送每日练习'+os.linesep)
             for line in f:
                 body.send_keys(line.decode('utf-8','ignor'))
 
