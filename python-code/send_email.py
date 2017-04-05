@@ -4,6 +4,7 @@ import time
 import os
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
+from selenium.webdriver.support.ui import WebDriverWait
 
 class AutoSendEmail(unittest.TestCase):
     def setUp(self):
@@ -52,8 +53,12 @@ class AutoSendEmail(unittest.TestCase):
         #切换到有发送按钮的页面iframe
         self.browser.switch_to_frame('mainFrame')
         self.browser.find_element_by_link_text(u'发送').click()
-        time.sleep(2)
-        self.assertTrue(u'邮件已发送' in self.browser.page_source)
+        self.browser.implicitly_wait(10)
+        # element = WebDriverWait(driver, 10).until(lambda x: \
+        #             x.find_element(locatorMethod, locatorExpression))
+        WebDriverWait(self.browser, 10).until(
+            lambda x:self.assertTrue(u'邮件已发送' in x.page_source))
+        # self.assertTrue(u'邮件已发送' in self.browser.page_source)
         print u'邮件已发送！'
         #跳出最外层页面
         self.browser.switch_to.default_content()

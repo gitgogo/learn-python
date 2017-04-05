@@ -6,7 +6,7 @@ import time
 class TestDemo(unittest.TestCase):
     def setUp(self):
         # 获取浏览器驱动实例
-        self.driver=webdriver.Chrome(executable_path = "/Users/ralphliu/Document/webdriver/chromedriver")
+        self.driver=webdriver.Chrome(executable_path ="/Users/ralphliu/Document/webdriver/chromedriver")
 
     def test_HTML5Canvas(self):
         url = "http://www.w3school.com.cn/tiy/loadtext.asp?f=html5_canvas_line"
