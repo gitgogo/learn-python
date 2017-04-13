@@ -45,19 +45,20 @@ class AutoSendEmail(unittest.TestCase):
             body=self.browser.find_element('xpath',"html/body")
             # body.send_keys(u'#自动发送每日练习'+os.linesep)
             for line in f:
-                body.send_keys(line.decode('utf-8','ignor'))
+                body.send_keys(line.decode('utf-8','ignore'))
 
         time.sleep(2)
         #跳出最外层页面
         self.browser.switch_to.default_content()
         #切换到有发送按钮的页面iframe
-        self.browser.switch_to_frame('mainFrame')
-        self.browser.find_element_by_link_text(u'发送').click()
-        self.browser.implicitly_wait(10)
+        self.browser.switch_to.frame('mainFrame')
+        WebDriverWait(self.browser,10,0.2).until(lambda x:x.find_element_by_name('sendbtn')).click()
+        # self.browser.find_element_by_link_text(u'发送').click()
+        # self.browser.implicitly_wait(10)
         # element = WebDriverWait(driver, 10).until(lambda x: \
         #             x.find_element(locatorMethod, locatorExpression))
         WebDriverWait(self.browser, 10).until(
-            lambda x:self.assertTrue(u'邮件已发送' in x.page_source))
+            lambda x:self.assertTrue(u'已发送' in x.page_source))
         # self.assertTrue(u'邮件已发送' in self.browser.page_source)
         print u'邮件已发送！'
         #跳出最外层页面
