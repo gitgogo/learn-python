@@ -1,6 +1,7 @@
 #coding=utf-8
 import unittest
 import time
+import datetime
 import os
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
@@ -12,7 +13,8 @@ class AutoSendEmail(unittest.TestCase):
         self.browser.get('https://mail.qq.com/')
         self.name='865479851'
         self.passwd='ralph1989-11-23'
-        self.subject=u'每日练习-柳栋杰'+time.strftime('%Y%m%d')
+        # self.subject=u'每日练习-柳栋杰'+time.strftime('%Y%m%d')
+        self.subject=u'每日练习-柳栋杰'+str(datetime.date.today()-datetime.timedelta(days=1))
         self.filepath='/Users/ralphliu/Document/learn-python/python-code/tmp.py'
 
     def test_send_email(self):
@@ -52,6 +54,7 @@ class AutoSendEmail(unittest.TestCase):
         self.browser.switch_to.default_content()
         #切换到有发送按钮的页面iframe
         self.browser.switch_to.frame('mainFrame')
+        time.sleep(2)
         WebDriverWait(self.browser,10,0.2).until(lambda x:x.find_element_by_name('sendbtn')).click()
         # self.browser.find_element_by_link_text(u'发送').click()
         # self.browser.implicitly_wait(10)

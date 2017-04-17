@@ -333,3 +333,277 @@ while True:
         break
 s.send('exit')
 s.close()
+
+#服务端接收请求UDP
+import socket
+udpServer=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+udpServer.bind(('127.0.0.1',8888))
+print 'bind udp on 8888...' #udp不需要listen，接收方法返回数据+地址，recvfrom，发送消息sendto
+while True:
+    data,addr=udpServer.recvfrom(1024)
+    udpServer.sendto('hello,%s'%data,addr)
+
+#udp客户端
+import socket
+client=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+#不需要建立连接connection，sendto需传入发送的数据+地址
+for name in ['bob','jack','lucy']:
+    client.sendto(name,('127.0.0.1',8888))
+    print client.recv(1024)
+client.close()
+
+#电子邮件📧
+import smtplib
+from email.mime.text import MIMEText
+
+msg=MIMEText('send from your friend by python...','palin','utf-8')
+
+from_addr='ldjwyyx@163.com'
+passwd='wy1989-10-26'
+send_to='865479851@qq.com'
+smtp_server='smtp.163.com'
+msg['From']=from_addr
+msg['Subject']='xxx'
+msg['To']=send_to
+server=smtplib.SMTP(smtp_server,25)
+server.set_debuglevel(1)
+server.login(from_addr,passwd)
+server.sendmail(from_addr,[send_to],str(msg))
+#554 DT:SPM 发送的邮件内容包含了未被许可的信息，或被系统识别为垃圾邮件。
+# 请检查是否有用户发送病毒或者垃圾邮件
+server.quit()
+
+#添加附件的邮件
+#coding=utf-8
+from email import encoders
+from email.header import Header
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from email.mime.multipart import MIMEBase
+from email.utils import parseaddr,formataddr
+import smtplib
+
+def _format_addr(s):
+    name,addr=parseaddr(s)
+    return formataddr((Header(name,'utf-8').encode(),
+        addr.encode('utf-8') if isinstance(addr,unicode) else addr))
+
+from_addr='ldjwyyx@163.com'
+passwd='wy1989-10-26'
+to_addr='865479851@qq.com'
+smtp_server='smtp.163.com'
+
+body='''
+<html>
+    <body>
+        <h1>Hello</h1>
+        <p>send by <a href="http://www.python.org">Python</a>...</p>
+        <p><img src="cid:0"></p>  <!-- 将附件的图片添加至正文显示 -->
+    </body></html>
+'''
+msg=MIMEMultipart('alternative')
+#同事支持HTML和plain格式，由于部分古老设备不支持HTML，则可以选择接收plain格式
+msg.attach(MIMEText('hello this is your info...','plain','utf-8'))
+#添加正文部分
+msg.attach(MIMEText(body,'html','utf-8')) 
+msg['From']=_format_addr(u'大哥<%s>'%from_addr)
+msg['To']=_format_addr(u'小弟<%s>'%to_addr)
+msg['Subject']=Header(u'来自SMTP的问候。。。','utf-8').encode()
+#发送附件
+with open('/Users/ralphliu/Desktop/1.png','rb') as f:
+    mime=MIMEBase('image','png',filename='1.png')
+    mime.add_header('Content-Disposition','attachment',filename='1.png')
+    mime.add_header('Content-ID','<0>')
+    mime.add_header('X-Attachment-Id','0')
+    mime.set_payload(f.read())
+    encoders.encode_base64(mime)
+    msg.attach(mime) #添加附件
+
+server=smtplib.SMTP(smtp_server,25)
+server.starttls() #加密传输，如Gmail的SMTP是587，使用加密传输
+server.set_debuglevel(1)
+server.login(from_addr,passwd)
+server.sendmail(from_addr,[to_addr],msg.as_string())
+server.quit()
+
+#pop收取电子邮件
+# -*- coding: utf-8 -*-
+
+import poplib
+import email
+from email.parser import Parser
+from email.header import decode_header
+from email.utils import parseaddr
+
+def guess_charset(msg):
+    charset = msg.get_charset()
+    if charset is None:
+        content_type = msg.get('Content-Type', '').lower()
+        pos = content_type.find('charset=')
+        if pos >= 0:
+            charset = content_type[pos + 8:].strip()
+    return charset
+
+def decode_str(s):
+    value, charset = decode_header(s)[0]
+    if charset:
+        value = value.decode(charset)
+    return value
+
+def print_info(msg, indent=0):
+    if indent == 0:
+        for header in ['From', 'To', 'Subject']:
+            value = msg.get(header, '')
+            if value:
+                if header=='Subject':
+                    value = decode_str(value)
+                else:
+                    hdr, addr = parseaddr(value)
+                    name = decode_str(hdr)
+                    value = u'%s <%s>' % (name, addr)
+            print('%s%s: %s' % ('  ' * indent, header, value))
+    if (msg.is_multipart()):
+        parts = msg.get_payload()
+        for n, part in enumerate(parts):
+            print('%spart %s' % ('  ' * indent, n))
+            print('%s--------------------' % ('  ' * indent))
+            print_info(part, indent + 1)
+    else:
+        content_type = msg.get_content_type()
+        if content_type=='text/plain' or content_type=='text/html':
+            content = msg.get_payload(decode=True)
+            charset = guess_charset(msg)
+            if charset:
+                content = content.decode(charset)
+            print('%sText: %s' % ('  ' * indent, content + '...'))
+        else:
+            print('%sAttachment: %s' % ('  ' * indent, content_type))
+
+email = 'liudongjie2015@126.com'
+password = 'liudongjie126'
+pop3_server = 'pop.126.com'
+
+server = poplib.POP3(pop3_server)
+#server.set_debuglevel(1)
+print(server.getwelcome())
+# 认证:
+server.user(email)
+server.pass_(password)
+print('Messages: %s. Size: %s' % server.stat())
+resp, mails, octets = server.list()
+# 获取最新一封邮件, 注意索引号从1开始:
+resp, lines, octets = server.retr(len(mails))
+# 解析邮件:
+msg = Parser().parsestr('\r\n'.join(lines))
+# 打印邮件内容:
+print_info(msg)
+# 慎重:将直接从服务器删除邮件:
+# server.dele(len(mails))
+# 关闭连接:
+server.quit()
+
+#mysqlalchemy
+#coding=utf-8
+#step1 导入SQLalchemy，并且初始化
+from sqlalchemy import Column,String,create_engine
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy.ext.declarative import declarative_base
+
+Base=declarative_base()
+
+class User(Base):
+    __tablename__='user'
+    id=Column(String(20),primary_key=True)
+    name=Column(String(20))
+
+#数据库类型+数据库驱动名称://用户名:口令@机器地址:端口号/数据库名
+engine=create_engine('mysql+mysqldb://root:root@localhost:3306/tmp')
+DBSession=sessionmaker(bind=engine)
+#创建session对象
+session=DBSession()
+new_user=User(id='5',name='bob')
+# session.add(new_user)
+# session.commit()
+
+user=session.query(User).filter(User.id=='5').one()
+print 'type:',type(user)
+print 'name:',user.name
+session.close()
+
+#一对多联表查询
+class User(Base):
+    __tablename__='user':
+    id=Column(String(20),primary_key=True)
+    name=Column(String(20))
+    books=relationship('Book')
+
+class Book(Base):
+    __tablename__='book'
+    id=Column(String(20),primary_key=True)
+    name=Column(String(20))
+    user_id=Column(String(20),ForeignKey('user.id'))
+
+#web开发
+#coding=utf-8
+def application(environ,start_response):
+    start_response('200 ok',[('Content-Type','text/html')])
+    return '<h1>Hello, %s</h1>'%(environ['PATH_INFO'][1:] or 'web')
+
+from wsgiref.simple_server import make_server
+
+httpd=make_server('',8000,application)
+print 'Serving HTTP on port 8000'
+httpd.serve_forever()
+
+#Flask框架
+#coding=utf-8
+from flask import Flask
+from flask import request
+
+app=Flask(__name__)
+
+@app.route('/',methods=['GET','POST'])
+def home():
+    return '<h1>Home</h1>'
+
+@app.route('/signin',methods=['GET'])
+def signin_form():
+    return '''<form action="/signin" method="post">
+              <p><input name="username"></p>
+              <p><input name="password" type="password"></p>
+              <p><button type="submit">Sign In</button></p>
+              </form> '''
+
+@app.route('/signin',methods=['POST'])
+def signin():
+    if request.form['username']=='admin' and request.form['password']=='1234':
+        return '<h3>Hello, admin</h3>'
+    return '<h3>Bad username or password</h3>'
+
+if __name__ == '__main__':
+    app.run()
+
+# 使用MVC模型进行web开发
+#coding=utf-8
+from flask import Flask,request,render_template
+
+app=Flask(__name__)
+
+@app.route('/',methods=['GET','POST'])
+def home():
+    return render_template('home.html')
+
+@app.route('/signin',methods=['GET'])
+def signin_form():
+    return render_template('form.html')
+
+@app.route('/signin',methods=['POST'])
+def signin():
+    username=request.form['username']
+    password=request.form['password']
+    if username=='admin' and password=='1234':
+        return render_template('signin_ok.html',username=username)
+    return render_template('form.html',message='bad username or password',username=username)
+
+if __name__ == '__main__':
+    app.run()

@@ -1,27 +1,9 @@
 #coding=utf-8
+#udp客户端
 import socket
-#客户端，发起请求
-# s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-# s.connect(('127.0.0.1',9999))
-# print s.recv(1024)
-# for name in ['jack','bob','ralph','mike']:
-#     s.send(name)
-#     print s.recv(1024) 
-# s.send('exit')
-# s.close()
-
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-# 建立连接:
-s.connect(('127.0.0.1', 9994))
-# 接收欢迎消息:
-print s.recv(1024)
-while True:
-	print 'what can I do for you? sir...'
-    # 发送数据:
-	data=raw_input('>>')
-	s.send(data)
-	print s.recv(1024)
-	if data=='exit':
-		break
-s.send('exit')
-s.close()
+client=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+#不需要建立连接connection，sendto需传入发送的数据+地址
+for name in ['bob','jack','lucy']:
+	client.sendto(name,('127.0.0.1',8888))
+	print client.recv(1024)
+client.close()
