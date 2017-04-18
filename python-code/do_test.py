@@ -607,3 +607,30 @@ def signin():
 
 if __name__ == '__main__':
     app.run()
+
+#协程用法yield，生产者--消费者模式
+#coding=utf-8
+import time
+def cosumer():
+    r=''
+    while True:
+        n=yield r
+        if not n:
+            return
+        print '[consumer] consuming %s...'%n 
+        time.sleep(1)
+        r='200 ok'
+
+def produce(c):
+    c.next()
+    n=0
+    while n<5:
+        n+=1
+        print '[producer] producing %s...'%n 
+        r=c.send(n)
+        print '[producer] consumer return %s'%r
+    c.close()
+
+if __name__ == '__main__':
+    c=cosumer()
+    produce(c)
