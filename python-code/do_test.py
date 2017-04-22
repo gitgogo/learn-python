@@ -634,3 +634,50 @@ def produce(c):
 if __name__ == '__main__':
     c=cosumer()
     produce(c)
+
+#coding=utf-8
+from gevent import monkey
+monkey.patch_all()
+import gevent
+import urllib2
+
+def fun(url):
+    print 'GET: %s'%url 
+    resp=urllib2.urlopen(url)
+    data=resp.read()
+    print '%d bytes received from %s'%(len(data),url)
+
+gevent.joinall([gevent.spawn(fun,'https://www.baidu.com'),
+    gevent.spawn(fun,'https://www.qq.com'),
+    gevent.spawn(fun,'https://github.com')])
+
+#coding=utf-8
+#with as 用法
+import os
+class Demo(object):
+    def __enter__(self):
+        print 'now in __enter__'
+        return 'Fun'
+
+    def __exit__(self,type,value,trace):
+        print 'now in __exit__'
+
+with Demo() as demo:
+    print demo
+
+class File(object):
+    def __init__(self,file,mode='r'):
+        self.file=file
+        self.mode=mode
+
+    def __enter__(self):
+        self.f=open(self.file,self.mode)
+        return self.f
+
+    def __exit__(self,type,value,trace):
+        self.f.close()
+
+with File(os.path.join(os.getcwd(),'tmp.py')) as f:
+    for line in f:
+        print line
+        break

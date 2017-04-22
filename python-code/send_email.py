@@ -13,8 +13,8 @@ class AutoSendEmail(unittest.TestCase):
         self.browser.get('https://mail.qq.com/')
         self.name='865479851'
         self.passwd='ralph1989-11-23'
-        # self.subject=u'每日练习-柳栋杰'+time.strftime('%Y%m%d')
-        self.subject=u'每日练习-柳栋杰'+str(datetime.date.today()-datetime.timedelta(days=1))
+        self.subject=u'每日练习-柳栋杰'+time.strftime('%Y%m%d')
+        # self.subject=u'每日练习-柳栋杰'+str(datetime.date.today()-datetime.timedelta(days=1))
         self.filepath='/Users/ralphliu/Document/learn-python/python-code/tmp.py'
 
     def test_send_email(self):
