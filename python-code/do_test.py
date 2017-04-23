@@ -681,3 +681,99 @@ with File(os.path.join(os.getcwd(),'tmp.py')) as f:
     for line in f:
         print line
         break
+#装饰器
+#coding=utf-8
+from functools import wraps
+def read_file(filename='log.txt'):
+    def decorator_fun(fun):
+        @wraps(fun)
+        def new_fun(*args,**kwargs):
+            result=fun(*args,**kwargs)
+            with open(filename,'w') as f:
+                f.write(str(result)+'\n')
+                f.write('fun name : {name}\noposition args : {arg}\nkey args : {kw}'
+                    .format(name=fun.__name__, arg=args,kw=kwargs))
+            return result
+        return new_fun
+    return decorator_fun
+
+@read_file()
+def add(*args,**kwargs):
+    return sum(args)+sum(kwargs.values())
+
+add(1,2,3,k=5,l=6)
+print add.__name__
+
+#自定义类的装饰器：有时候我们的装饰器里可能会干不止一个事情，
+# 此时应该把事件作为额外的函数分离出去。
+# 但是又因为它可能仅仅和该装饰器有关，所以此时可以构造一个装饰器类。
+# 原理很简单，主要就是编写类里的__call__方法，使类能够像函数一样的调用。
+#coding=utf-8
+from functools import wraps
+
+class logResult(object):
+    def __init__(self,filename='results.txt'):
+        self.filename=filename
+
+    def __call__(self,fun):
+        @wraps(fun)
+        def new_fun(*args,**kwargs):
+            result=fun(*args,**kwargs)
+            with open(self.filename,'a') as f:
+                f.write(str(result)+'\n')
+            return result
+        self.send_notification()
+        return new_fun
+
+    def send_notification(self):
+        pass
+
+@logResult('log.txt')
+def add(a,b):
+    return a+b
+
+add(3,5)
+#可迭代对象
+#coding=utf-8
+class LoopIter(object):
+    def __init__(self,data):
+        self.data=data
+    #在__iter__中yield结果
+    def __iter__(self):
+        for index,letter in enumerate(self.data):
+            if letter=='a':
+                yield index
+
+indexs=LoopIter('a test mama, a big dog')
+for i in indexs:
+    print i,
+for j in indexs:
+    print j,
+
+indexs=iter(indexs)
+print next(indexs)
+
+#coding=utf-8
+class Test(object):
+    #用列表罗列出所有属性
+    __slots__=['name','age']
+    def __init__(self,name='python',age=10):
+        self.name=name
+        self.age=age
+
+test=Test()
+print test.name
+test.new_key='new_key'
+#AttributeError: 'Test' object has no attribute 'new_key'
+
+#树结构
+from collections import defaultdict
+
+tree=lambda: defaultdict(tree)
+#实例化一个树
+db=tree()
+db['user']['name']='jack'
+
+import json
+print json.dumps(db)
+#{"user": {"name": "jack"}}
