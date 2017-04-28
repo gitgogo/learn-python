@@ -777,3 +777,116 @@ db['user']['name']='jack'
 import json
 print json.dumps(db)
 #{"user": {"name": "jack"}}
+
+#coding=utf-8
+from xml.etree.ElementTree import parse
+from urllib import urlopen
+from openpyxl import Workbook
+
+content=urlopen('http://planet.python.org/rss20.xml')
+doc=parse(content)
+
+wb=Workbook()
+ws=wb.active
+ws.append(['title','date','link'])
+
+for item in doc.iterfind('channel/item'):
+    title=item.findtext('title')
+    date=item.findtext('pubDate')
+    link=item.findtext('link')
+    ws.append([title,date,link])
+
+wb.save('python.xlsx')
+
+#CSV文件读写
+#coding=utf-8
+import csv
+
+headers = ['Symbol', 'Price', 'Date', 'Time', 'Change', 'Volume']
+rows = [{'Symbol':'AA', 'Price':39.48, 'Date':'6/11/2007',
+        'Time':'9:36am', 'Change':-0.18, 'Volume':181800},
+        {'Symbol':'AIG', 'Price': 71.38, 'Date':'6/11/2007',
+        'Time':'9:36am', 'Change':-0.15, 'Volume': 195500},
+        {'Symbol':'AXP', 'Price': 62.58, 'Date':'6/11/2007',
+        'Time':'9:36am', 'Change':-0.46, 'Volume': 935000},
+        ]
+rows1 = [('AA', 39.48, '6/11/2007', '9:36am', -0.18, 181800),
+         ('AIG', 71.38, '6/11/2007', '9:36am', -0.15, 195500),
+         ('AXP', 62.58, '6/11/2007', '9:36am', -0.46, 935000),
+       ]
+
+with open('stocks.csv','w') as f:
+    f_csv=csv.DictWriter(f,headers)
+    f_csv.writeheader()
+    f_csv.writerows(rows)
+
+with open('stocks.csv','w') as f:
+    f_csv=csv.writer(f)
+    f_csv.writerow(headers)
+    f_csv.writerows(rows1)
+
+with open('stocks.csv') as f:
+    f_csv=csv.DictReader(f)
+    for row in f_csv:
+        print row['Change']
+
+from collections import namedtuple
+with open('stocks.csv') as f:
+    f_csv=csv.reader(f)
+    headings=next(f_csv)
+    Row=namedtuple('Row',headings)
+    for r in f_csv:
+        row=Row(*r)
+        print row.Change
+
+#描述符
+class CheckInteger(object):
+    def __init__(self,name):
+        self.name=name
+
+    def __get__(self,instance,cls):
+        if instance is None:
+            return self 
+        else:return instance.__dict__[self.name]
+
+    def __set__(self,instance,value):
+        if not isinstance(value,int):
+            raise TypeError('expected an int')
+        instance.__dict__[self.name]=value 
+
+    def __delete__(self,instance):
+        del instance.__dict__[self.name]
+
+class Point(object):
+    x=CheckInteger('x')
+    y=CheckInteger('y')
+
+    def __init__(self,x,y):
+        self.x=x
+        self.y=y
+
+point=Point(1,2)
+print point.x
+point.x=3
+print point.x
+point.x='e' #raise TypeError('expected an int')
+print Point.x #<__main__.CheckInteger object at 0x000000000221AD68>
+
+#编程题
+# 给你一串字符串，要求将字符串中任一长度为3的子串中，
+# 第一个字符与第三个字符相同的子串移除，编程实现
+# 如：abad==>d  absdsag==>g 
+s='rtyuyraswedde'
+def get_string(arg):
+    i=1
+    while i<len(arg)-1 and len(arg)>=2:
+        if arg[0]==arg[2]:
+            arg=arg[3:]
+            continue
+        elif arg[i-1]==arg[i+1]:
+            arg=arg[:i-1]+arg[i+2:]
+            i=i-2
+        else:
+            i+=1
+    return arg
+    
