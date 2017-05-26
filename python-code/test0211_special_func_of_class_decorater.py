@@ -50,15 +50,15 @@ class Foo(object):
 		self.d=d
  
 	def __getitem__(self, key):
-		print '__getitem__',d[key]
+		print '__getitem__',self.d[key]
  
 	def __setitem__(self, key, value):
         # print '__setitem__',key,value
-		d[key]=value
+		self.d[key]=value
  
 	def __delitem__(self, key):
 		print '__delitem__',key
-		del d[key]
+		del self.d[key]
 d={}
 obj = Foo(d)
 # obj['k1']      # 自动触发执行 __getitem__
@@ -157,10 +157,10 @@ print sys.getrefcount(a)
 
 #循环引用--可被垃圾回收
 class LeakTest:
-        def __init__(self):
-                self.a = None
-                self.b = None
-                print "object = %d born here." % id(self)
+    def __init__(self):
+        self.a = None
+        self.b = None
+        print "object = %d born here." % id(self)
 
 A = LeakTest()
 B = LeakTest()
@@ -195,7 +195,7 @@ res = outer()
 res()
 print res.func_closure
 #装饰器实现--准备工作
-coding=utf-8
+# coding=utf-8
 outerVar = "this is a global variable"
 a=3
 def test() :
@@ -209,7 +209,7 @@ test()
 print "global variables :"
 print globals()
 print locals()
-coding=utf-8
+# coding=utf-8
 
 def outer() :
   name = "python"
