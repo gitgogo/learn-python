@@ -1,0 +1,7 @@
+打开chrome浏览||browser||chrome
+访问百度网站||visit||http://www.sogou.com
+输入搜索词||input||//input[@id='query']||gloryroad test
+点击搜索按钮||click||//input[@id='stb']
+休眠3秒||sleep||3
+断言是否包含gloryroad||assert_word||gloryroad
+关闭浏览器窗口||close

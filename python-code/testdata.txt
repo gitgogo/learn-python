@@ -1,0 +1,4 @@
+search_word||expected_word
+selenium 实战宝典||吴晓华
+超人||美国
+飞人乔丹||NBA
