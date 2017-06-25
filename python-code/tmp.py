@@ -42,62 +42,31 @@ from openpyxl import load_workbook
 # position=root.getElementsByTagName('position')
 # print position[0].getAttribute('comment')
 # print position[0].childNodes[0].data
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from email.mime.application import MIMEApplication
 
-#coding=utf-8
-import sys
-try:
-    import xml.etree.cElementTree as ET
-except ImportError:
-    import xml.etree.ElementTree as ET
+def send_email(body,attach):
+	sender=""
+	sender_pwd=""
+	smtp_server=""
+	receiver=""
 
-xml=ET.ElementTree(file='movies.xml')
-# print xml.toxml()
-root=xml.getroot()
-print root.tag
-for i in root.findall('movie'):
-	for j in list(i.iter())[1:]:
-		print j.tag
-	break
+	message=MIMEMultipart()
+	message['From']=''
+	message['To']=''
+	message['Cc']=''
+	message.attach(MIMEText(body,'plain','utf-8'))
+	attach_file=open(attach,'rb')
+	attach_part=MIMEApplication(attach_file.read(),Name=os.path.basename(attach))
+	attach_part['Content-Disposition']="attachment: filename=%s"%os.path.basename(attach)
+	message.attach(attach_part)
 
-from lettuce import *
-from selenium import webdriver
-import time
-
-@step(u'启动一个浏览器')
-def start_browser(step):
-	world.driver=webdriver.Chrome(executable_path='')
-
-@step(u'用户访问(.*)网址')
-def visit_url(step,url):
-	world.driver.get(url)
-
-@step(u'用户输入输入用户名(.*)和密码(.*)')
-def send_user_pass(step,username,passwd):
-	world.driver.switch_to.frame("xxx")
-	user=world.driver.find_element_by_id("xxx")
-	passw=world.driver.find_element_by_id("xxx")
-	user.clear()
-	user.send_keys(username)
-	passw.clear()
-	passw.send_keys(passwd)
-	passw.send_keys(Keys.RETURN)
-
-@step(u'页面会出现(.*)关键字')
-def assert_result(step,keyword):
-	assert keyword in world.driver.page_source
-
-@before.all
-def say_hello():
-	print u'开始测试。。。'
-
-@before.each_scenario
-def setup_some_scenario(scenario):
-	print u'开始执行测试用例%s'%scenario.name
-
-@after.each_scenario
-def teardown_some_scenario(scenario):
-	print u'over%s'%scenario.name
-
-@after.all
-def after_test(total):
-	print u'test down...'total.scenarios_ran,total.scenarios_passed
+	try:
+		smtp=smtplib.SMTP()
+		smtp.connect(smtp_server)
+		smtp.login(sender,sender_pwd)
+		smtp.sendmail(sender,receiver,message.to_sting())
+	except Exception as e:
+		raise e
